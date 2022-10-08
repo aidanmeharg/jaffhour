@@ -56,6 +56,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C63123F428F1F1C200DA25B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C63123F628F1F24800DA25B1 /* HomePage */,
+				C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */,
+				C6E2206528E8DA5600A2DB55 /* WorkDayRow.swift */,
+				C6E2205F28E75E4100A2DB55 /* JobView.swift */,
+				C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */,
+				C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */,
+				C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */,
+				C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C63123F528F1F21500DA25B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6E2205328E6492000A2DB55 /* workday.swift */,
+				C6E2205928E65E5800A2DB55 /* ViewModel.swift */,
+				C63123F128F0B54100DA25B1 /* GlobalPayees.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C63123F628F1F24800DA25B1 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */,
+				C6E2205D28E6983F00A2DB55 /* JobRow.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
 		C6AF759E28E3EE7D00EFB374 = {
 			isa = PBXGroup;
 			children = (
@@ -75,22 +109,12 @@
 		C6AF75A928E3EE7E00EFB374 /* jaffhour */ = {
 			isa = PBXGroup;
 			children = (
-				C6E2205328E6492000A2DB55 /* workday.swift */,
-				C6E2205928E65E5800A2DB55 /* ViewModel.swift */,
+				C63123F428F1F1C200DA25B1 /* Views */,
+				C63123F528F1F21500DA25B1 /* Model */,
 				C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */,
-				C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */,
-				C6E2205D28E6983F00A2DB55 /* JobRow.swift */,
 				C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */,
 				C6AF75B028E3EE8100EFB374 /* Preview Content */,
-				C6E2205F28E75E4100A2DB55 /* JobView.swift */,
 				C6E2206128E7819A00A2DB55 /* editTest.swift */,
-				C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */,
-				C6E2206528E8DA5600A2DB55 /* WorkDayRow.swift */,
-				C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */,
-				C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */,
-				C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */,
-				C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */,
-				C63123F128F0B54100DA25B1 /* GlobalPayees.swift */,
 			);
 			path = jaffhour;
 			sourceTree = "<group>";
