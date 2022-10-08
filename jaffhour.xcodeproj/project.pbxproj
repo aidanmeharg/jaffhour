@@ -1,0 +1,392 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F128F0B54100DA25B1 /* GlobalPayees.swift */; };
+		C6AF75AB28E3EE7E00EFB374 /* jaffhourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */; };
+		C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */; };
+		C6AF75AF28E3EE8100EFB374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */; };
+		C6AF75B228E3EE8100EFB374 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75B128E3EE8100EFB374 /* Preview Assets.xcassets */; };
+		C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */; };
+		C6E0D16928EF5F9200DCD6C3 /* addExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */; };
+		C6E0D16D28EF8E4E00DCD6C3 /* WorkDayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */; };
+		C6E2205428E6492000A2DB55 /* workday.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2205328E6492000A2DB55 /* workday.swift */; };
+		C6E2205A28E65E5800A2DB55 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2205928E65E5800A2DB55 /* ViewModel.swift */; };
+		C6E2205E28E6983F00A2DB55 /* JobRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2205D28E6983F00A2DB55 /* JobRow.swift */; };
+		C6E2206028E75E4100A2DB55 /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2205F28E75E4100A2DB55 /* JobView.swift */; };
+		C6E2206228E7819A00A2DB55 /* editTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2206128E7819A00A2DB55 /* editTest.swift */; };
+		C6E2206428E8D73F00A2DB55 /* addWorkDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */; };
+		C6E2206628E8DA5600A2DB55 /* WorkDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2206528E8DA5600A2DB55 /* WorkDayRow.swift */; };
+		C6E2206828E8DF8100A2DB55 /* WorkDaysListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C63123F128F0B54100DA25B1 /* GlobalPayees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPayees.swift; sourceTree = "<group>"; };
+		C6AF75A728E3EE7E00EFB374 /* jaffhour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaffhour.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jaffhourApp.swift; sourceTree = "<group>"; };
+		C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6AF75B128E3EE8100EFB374 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
+		C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addExpenseView.swift; sourceTree = "<group>"; };
+		C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDayDetailView.swift; sourceTree = "<group>"; };
+		C6E2205328E6492000A2DB55 /* workday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workday.swift; sourceTree = "<group>"; };
+		C6E2205928E65E5800A2DB55 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		C6E2205D28E6983F00A2DB55 /* JobRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRow.swift; sourceTree = "<group>"; };
+		C6E2205F28E75E4100A2DB55 /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
+		C6E2206128E7819A00A2DB55 /* editTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editTest.swift; sourceTree = "<group>"; };
+		C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addWorkDayView.swift; sourceTree = "<group>"; };
+		C6E2206528E8DA5600A2DB55 /* WorkDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDayRow.swift; sourceTree = "<group>"; };
+		C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDaysListView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6AF75A428E3EE7E00EFB374 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C6AF759E28E3EE7D00EFB374 = {
+			isa = PBXGroup;
+			children = (
+				C6AF75A928E3EE7E00EFB374 /* jaffhour */,
+				C6AF75A828E3EE7E00EFB374 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C6AF75A828E3EE7E00EFB374 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6AF75A728E3EE7E00EFB374 /* jaffhour.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6AF75A928E3EE7E00EFB374 /* jaffhour */ = {
+			isa = PBXGroup;
+			children = (
+				C6E2205328E6492000A2DB55 /* workday.swift */,
+				C6E2205928E65E5800A2DB55 /* ViewModel.swift */,
+				C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */,
+				C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */,
+				C6E2205D28E6983F00A2DB55 /* JobRow.swift */,
+				C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */,
+				C6AF75B028E3EE8100EFB374 /* Preview Content */,
+				C6E2205F28E75E4100A2DB55 /* JobView.swift */,
+				C6E2206128E7819A00A2DB55 /* editTest.swift */,
+				C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */,
+				C6E2206528E8DA5600A2DB55 /* WorkDayRow.swift */,
+				C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */,
+				C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */,
+				C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */,
+				C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */,
+				C63123F128F0B54100DA25B1 /* GlobalPayees.swift */,
+			);
+			path = jaffhour;
+			sourceTree = "<group>";
+		};
+		C6AF75B028E3EE8100EFB374 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C6AF75B128E3EE8100EFB374 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6AF75A628E3EE7E00EFB374 /* jaffhour */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6AF75B528E3EE8100EFB374 /* Build configuration list for PBXNativeTarget "jaffhour" */;
+			buildPhases = (
+				C6AF75A328E3EE7E00EFB374 /* Sources */,
+				C6AF75A428E3EE7E00EFB374 /* Frameworks */,
+				C6AF75A528E3EE7E00EFB374 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = jaffhour;
+			productName = jaffhour;
+			productReference = C6AF75A728E3EE7E00EFB374 /* jaffhour.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6AF759F28E3EE7D00EFB374 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					C6AF75A628E3EE7E00EFB374 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = C6AF75A228E3EE7D00EFB374 /* Build configuration list for PBXProject "jaffhour" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6AF759E28E3EE7D00EFB374;
+			productRefGroup = C6AF75A828E3EE7E00EFB374 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6AF75A628E3EE7E00EFB374 /* jaffhour */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6AF75A528E3EE7E00EFB374 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AF75B228E3EE8100EFB374 /* Preview Assets.xcassets in Resources */,
+				C6AF75AF28E3EE8100EFB374 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6AF75A328E3EE7E00EFB374 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6E2206028E75E4100A2DB55 /* JobView.swift in Sources */,
+				C6E2205428E6492000A2DB55 /* workday.swift in Sources */,
+				C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */,
+				C6E0D16928EF5F9200DCD6C3 /* addExpenseView.swift in Sources */,
+				C6E2205E28E6983F00A2DB55 /* JobRow.swift in Sources */,
+				C6E2206628E8DA5600A2DB55 /* WorkDayRow.swift in Sources */,
+				C6E2206428E8D73F00A2DB55 /* addWorkDayView.swift in Sources */,
+				C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */,
+				C6E2206828E8DF8100A2DB55 /* WorkDaysListView.swift in Sources */,
+				C6E2205A28E65E5800A2DB55 /* ViewModel.swift in Sources */,
+				C6E0D16D28EF8E4E00DCD6C3 /* WorkDayDetailView.swift in Sources */,
+				C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */,
+				C6AF75AB28E3EE7E00EFB374 /* jaffhourApp.swift in Sources */,
+				C6E2206228E7819A00A2DB55 /* editTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C6AF75B328E3EE8100EFB374 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C6AF75B428E3EE8100EFB374 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6AF75B628E3EE8100EFB374 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"jaffhour/Preview Content\"";
+				DEVELOPMENT_TEAM = 44X599L564;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aim.jaffhour;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C6AF75B728E3EE8100EFB374 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"jaffhour/Preview Content\"";
+				DEVELOPMENT_TEAM = 44X599L564;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aim.jaffhour;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6AF75A228E3EE7D00EFB374 /* Build configuration list for PBXProject "jaffhour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6AF75B328E3EE8100EFB374 /* Debug */,
+				C6AF75B428E3EE8100EFB374 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6AF75B528E3EE8100EFB374 /* Build configuration list for PBXNativeTarget "jaffhour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6AF75B628E3EE8100EFB374 /* Debug */,
+				C6AF75B728E3EE8100EFB374 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6AF759F28E3EE7D00EFB374 /* Project object */;
+}
