@@ -15,6 +15,13 @@ struct JobView: View {
     
     @State var showAddSheet = false
     
+    private let dateformatter = DateFormatter()
+    
+    init(job: Binding<Job>) {
+        self._job = job
+        dateformatter.dateFormat = "dd/MM/yyyy"
+    }
+    
     var body: some View {
         
             Form {
@@ -28,7 +35,7 @@ struct JobView: View {
                     }
                 }
                 Section {
-                    Label("Date Started: \(job.dateFormatter.string(from: job.startDate))", systemImage: "calendar")
+                    Label("Date Started: \(dateformatter.string(from: job.startDate))", systemImage: "calendar")
                 }
                 Section {
                     Label("Total Hours: \(String(format: "%.2f", round(job.totalhours * 100) / 100.0))", systemImage: "clock")
