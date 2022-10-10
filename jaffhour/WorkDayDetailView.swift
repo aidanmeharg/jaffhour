@@ -16,7 +16,8 @@ struct WorkDayDetailView: View {
             Text("\(workday.dateFormatter.string(from: workday.date))")
             Text(workday.tasks)
             Text(workday.notes)
-            ForEach(workday.expenses, id: \.self) { expense in
+            ForEach(workday.expenses, id: \.id) { expense in
+                Text(expense.name)
                 Text(expense.description)
                 Text("\(expense.amount)")
             }

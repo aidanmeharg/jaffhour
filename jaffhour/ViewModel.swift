@@ -10,15 +10,45 @@ import Combine
 
 class ViewModel: ObservableObject {
     
-    @Published var jobs: [Job]
+    // URL for saving/loading JSON data
+    private let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedItems")
     
-    @Published var payees: [String]
+    // An active Combine chain that watches for changes to the `items` array, and calls save()
+    // 5 seconds after a change has happened.
+    private var saveSubscription: AnyCancellable?
+    
+    @Published var jobs: [Job]
     
     
     init() {
-        jobs = [Job.example, Job.exampleTwo, Job.exampleThree]
-        payees = ["Home Depot", "A&B Tools", "Dicks Lumber"]
+//        do {
+//            let data = try Data(contentsOf: savePath)
+//            jobs = try JSONDecoder().decode([Job].self, from: data)
+//        } catch {
+//            // loading failed: start with new data
+            jobs = []
+//        }
         
+        // Wait 5 seconds after `jobs` has changed before calling `save()`, to
+        // avoid repeatedly calling it for every tiny change.
+        saveSubscription = $jobs
+            .debounce(for: 5, scheduler: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.save()
+                    }
+//        jobs = [Job.example, Job.exampleTwo, Job.exampleThree]
+//        payees = ["Home Depot", "A&B Tools", "Dicks Lumber"]
+        
+    }
+    
+    // Convert jobs to JSON and save to disk
+    func save() {
+//        do {
+//            let data = try JSONEncoder().encode(jobs)
+//            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+//        } catch {
+//            print("Unable to save data")
+//        }
     }
     
     func addJob() {

@@ -7,10 +7,10 @@
 
 import Foundation
 
-// ideally want a shared list of A/P with the job and workdays
-struct Expense: Hashable, Identifiable {
+
+struct Expense: Hashable, Identifiable, Codable {
     
-    let id = UUID()
+    var id = UUID()
     
     var name: String
     
@@ -25,8 +25,7 @@ struct Expense: Hashable, Identifiable {
 
 struct WorkDay: Hashable, Identifiable {
     
-    
-    let id = UUID()
+    var id = UUID()
     
     var date = Date()
     
@@ -44,9 +43,13 @@ struct WorkDay: Hashable, Identifiable {
     
     var notes: String
     
+    // TODO: maybe the dateformatters are the only thing that arent codable?
+    // Yes, get rid of them 
+    
     let dateFormatter = DateFormatter()
     
     let timeFormatter = DateFormatter()
+    
     
     // Default 9-5 of current day
     init(date: Date = Date(), startTime: Date = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) ?? Date(), endTime: Date = Calendar.current.date(bySettingHour: 17, minute: 0, second: 0, of: Date()) ?? Date(), expenses: [Expense] = [], totalExpenses: Double = 0.0, tasks: String, notes: String) {
@@ -71,7 +74,7 @@ struct WorkDay: Hashable, Identifiable {
 
 struct Job: Hashable, Identifiable {
      
-    let id = UUID()
+    var id = UUID()
     
     var title: String
     

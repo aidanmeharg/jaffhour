@@ -16,8 +16,11 @@ struct addExpenseView: View {
     
     @State private var selectedPayee = ""
     
-    
     @State private var newPayee = false
+    
+    func updatePayee() {
+        expense.name = selectedPayee
+    }
     
     var body: some View {
             VStack {
@@ -31,6 +34,7 @@ struct addExpenseView: View {
                             .padding(.all)
                         Button {
                             globalpayees.addPayee(payee: selectedPayee)
+                            updatePayee()
                             newPayee = false
                         } label: {
                             Label("add to payees", systemImage: "plus")
@@ -39,9 +43,14 @@ struct addExpenseView: View {
                     
                     
                 } else {
+                    
+                    // Obviously theres no link between selectedPayee and expense.name
                     Picker("Payable to: ", selection: $selectedPayee) {
-                        ForEach(globalpayees.payees, id: \.self) { payee in
-                            Text(payee)
+                        ForEach(globalpayees.payees, id: \.self) { //payee in
+                            Text($0)
+                        }
+                        .onChange(of: selectedPayee) { newValue in
+                            updatePayee()
                         }
                     }
                     .padding(.all)
@@ -58,7 +67,7 @@ struct addExpenseView: View {
                 
                     
             } // end of VStack
-            .tag(expense)
+            //.tag(expense)
     }
 }
 

@@ -19,11 +19,11 @@ final class GlobalPayees {
         return instance
     }()
     
-    init(payees: [String] = []) {
+    init(payees: [String] = [""]) {
         self.payees = payees
     }
     
-    // update to check for duplicates
+    // TODO: should update to check for duplicates
     func addPayee(payee: String) {
         payees.append(payee)
     }

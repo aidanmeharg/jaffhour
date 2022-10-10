@@ -92,6 +92,7 @@ struct addWorkDayView: View {
                         .frame(maxWidth: .infinity)
                         .onTapGesture {
                             workday.updateHours()
+                            
                             workday.expenses.append(contentsOf: expenses)
                             if (!job.addWorkDay(workday: workday)) {
                                 invalidDay = true

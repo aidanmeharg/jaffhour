@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F128F0B54100DA25B1 /* GlobalPayees.swift */; };
+		C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F828F2068200DA25B1 /* FileManagerExtension.swift */; };
+		C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */; };
 		C6AF75AB28E3EE7E00EFB374 /* jaffhourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */; };
 		C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */; };
 		C6AF75AF28E3EE8100EFB374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		C63123F128F0B54100DA25B1 /* GlobalPayees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPayees.swift; sourceTree = "<group>"; };
+		C63123F828F2068200DA25B1 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
+		C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTcodablestructs.swift; sourceTree = "<group>"; };
 		C6AF75A728E3EE7E00EFB374 /* jaffhour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaffhour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jaffhourApp.swift; sourceTree = "<group>"; };
 		C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,14 @@
 			path = HomePage;
 			sourceTree = "<group>";
 		};
+		C63123F728F2065500DA25B1 /* Data Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				C63123F828F2068200DA25B1 /* FileManagerExtension.swift */,
+			);
+			path = "Data Persistence";
+			sourceTree = "<group>";
+		};
 		C6AF759E28E3EE7D00EFB374 = {
 			isa = PBXGroup;
 			children = (
@@ -112,9 +124,11 @@
 				C63123F428F1F1C200DA25B1 /* Views */,
 				C63123F528F1F21500DA25B1 /* Model */,
 				C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */,
+				C63123F728F2065500DA25B1 /* Data Persistence */,
 				C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */,
 				C6AF75B028E3EE8100EFB374 /* Preview Content */,
 				C6E2206128E7819A00A2DB55 /* editTest.swift */,
+				C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */,
 			);
 			path = jaffhour;
 			sourceTree = "<group>";
@@ -202,11 +216,13 @@
 				C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */,
 				C6E0D16928EF5F9200DCD6C3 /* addExpenseView.swift in Sources */,
 				C6E2205E28E6983F00A2DB55 /* JobRow.swift in Sources */,
+				C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */,
 				C6E2206628E8DA5600A2DB55 /* WorkDayRow.swift in Sources */,
 				C6E2206428E8D73F00A2DB55 /* addWorkDayView.swift in Sources */,
 				C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */,
 				C6E2206828E8DF8100A2DB55 /* WorkDaysListView.swift in Sources */,
 				C6E2205A28E65E5800A2DB55 /* ViewModel.swift in Sources */,
+				C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */,
 				C6E0D16D28EF8E4E00DCD6C3 /* WorkDayDetailView.swift in Sources */,
 				C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */,
 				C6AF75AB28E3EE7E00EFB374 /* jaffhourApp.swift in Sources */,
