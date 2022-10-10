@@ -11,9 +11,16 @@ struct WorkDayDetailView: View {
     
     @Binding var workday: WorkDay
     
+    private let dateformatter = DateFormatter()
+    
+    init(workday: Binding<WorkDay>) {
+        self._workday = workday
+        dateformatter.dateFormat = "dd/MM/yyyy"
+    }
+    
     var body: some View {
         VStack {
-            Text("\(workday.dateFormatter.string(from: workday.date))")
+            Text("\(dateformatter.string(from: workday.date))")
             Text(workday.tasks)
             Text(workday.notes)
             ForEach(workday.expenses, id: \.id) { expense in

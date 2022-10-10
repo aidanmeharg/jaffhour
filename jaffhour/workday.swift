@@ -43,13 +43,6 @@ struct WorkDay: Hashable, Identifiable {
     
     var notes: String
     
-    // TODO: maybe the dateformatters are the only thing that arent codable?
-    // Yes, get rid of them 
-    
-    let dateFormatter = DateFormatter()
-    
-    let timeFormatter = DateFormatter()
-    
     
     // Default 9-5 of current day
     init(date: Date = Date(), startTime: Date = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) ?? Date(), endTime: Date = Calendar.current.date(bySettingHour: 17, minute: 0, second: 0, of: Date()) ?? Date(), expenses: [Expense] = [], totalExpenses: Double = 0.0, tasks: String, notes: String) {
@@ -61,8 +54,7 @@ struct WorkDay: Hashable, Identifiable {
         self.expenses = expenses
         self.totalExpenses = totalExpenses
         self.notes = notes
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        timeFormatter.timeStyle = .short
+        //timeFormatter.timeStyle = .short
     }
     
     mutating func updateHours() {
@@ -83,8 +75,6 @@ struct Job: Hashable, Identifiable {
     var payees: [String]
     
     let startDate = Date()
-    
-    let dateFormatter = DateFormatter()
     
     var totalhours: Double
     
@@ -117,7 +107,6 @@ struct Job: Hashable, Identifiable {
         self.title = title
         self.workdays = workdays
         self.payees = payees
-        dateFormatter.dateFormat = "dd/MM/yyyy"
         self.totalhours = totalhours
         self.totalExpenses = totalExpenses
         updateTotalHours()
