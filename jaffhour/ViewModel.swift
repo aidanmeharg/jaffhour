@@ -21,17 +21,17 @@ class ViewModel: ObservableObject {
     
     
     init() {
-//        do {
-//            let data = try Data(contentsOf: savePath)
-//            jobs = try JSONDecoder().decode([Job].self, from: data)
-//        } catch {
-//            // loading failed: start with new data
+        do {
+            let data = try Data(contentsOf: savePath)
+            jobs = try JSONDecoder().decode([Job].self, from: data)
+        } catch {
+            // loading failed: start with new data
             jobs = []
-//        }
+        }
         
         // Wait 5 seconds after `jobs` has changed before calling `save()`, to
         // avoid repeatedly calling it for every tiny change.
-        saveSubscription = $jobs
+        saveSubscription = $jobs // TODO: this won't check for changes to globalPayees, should probably put payees in here
             .debounce(for: 5, scheduler: RunLoop.main)
             .sink { [weak self] _ in
                 self?.save()
@@ -43,12 +43,12 @@ class ViewModel: ObservableObject {
     
     // Convert jobs to JSON and save to disk
     func save() {
-//        do {
-//            let data = try JSONEncoder().encode(jobs)
-//            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
-//        } catch {
-//            print("Unable to save data")
-//        }
+        do {
+            let data = try JSONEncoder().encode(jobs)
+            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+        } catch {
+            print("Unable to save data")
+        }
     }
     
     func addJob() {

@@ -23,7 +23,7 @@ struct Expense: Hashable, Identifiable, Codable {
 }
 
 
-struct WorkDay: Hashable, Identifiable {
+struct WorkDay: Hashable, Identifiable, Codable {
     
     var id = UUID()
     
@@ -54,7 +54,6 @@ struct WorkDay: Hashable, Identifiable {
         self.expenses = expenses
         self.totalExpenses = totalExpenses
         self.notes = notes
-        //timeFormatter.timeStyle = .short
     }
     
     mutating func updateHours() {
@@ -64,7 +63,7 @@ struct WorkDay: Hashable, Identifiable {
     static let example = WorkDay(date: Date(), expenses: [Expense.example1, Expense.example2], tasks: "Worked on JaffHour", notes: "Not much to say")
 }
 
-struct Job: Hashable, Identifiable {
+struct Job: Hashable, Identifiable, Codable {
      
     var id = UUID()
     
@@ -74,7 +73,7 @@ struct Job: Hashable, Identifiable {
     
     var payees: [String]
     
-    let startDate = Date()
+    var startDate = Date()
     
     var totalhours: Double
     
