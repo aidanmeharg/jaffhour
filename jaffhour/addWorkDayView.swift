@@ -59,7 +59,8 @@ struct addWorkDayView: View {
                 Section {
                     Text("Tasks")
                         .font(.title)
-                    TextField("What got done?", text: $workday.tasks, axis: .vertical)
+                    TextField("What got done?", text: $workday.tasks)
+                    // , axis: .vertical
                 }
                 Section {
                     Text("Expenses")
@@ -84,7 +85,8 @@ struct addWorkDayView: View {
                 Section {
                     Text("Notes")
                         .font(.title)
-                    TextField("Additional Notes", text: $workday.notes, axis: .vertical)
+                    TextField("Additional Notes", text: $workday.notes)
+                    // , axis: .vertical
                 }
                 Section {
                     Text("add to \(job.title)")
@@ -113,28 +115,8 @@ struct addWorkDayView: View {
                     Alert(title: Text("Highly Doubtful that you worked for \(String(format: "%.2f", round(workday.hours * 100) / 100.0)) hours... unless you're building a time machine?"))
                 }
                 
-                .scrollContentBackground(.hidden)
+                //.scrollContentBackground(.hidden)
                 .background(Color.green)
-                //                    Button {
-                //                        workday.updateHours()
-                //                        workday.expenses.append(contentsOf: expenses)
-                //                        if (!job.addWorkDay(workday: workday)) {
-                //                            invalidDay = true
-                //                            return
-                //                        } else {
-                //                            job.updateTotalHours()
-                //                            job.updateTotalExpenses()
-                //                            job.workdays.sort {
-                //                                $0.date > $1.date
-                //                            }
-                //                            isPresented = false
-                //
-                //                        }
-                //                    } label: {
-                //                        Label("add to \(job.title)", systemImage: "plus")
-                //                            .foregroundColor(Color.green)
-                //                    }
-                //                    .padding()
                 
                 
             }

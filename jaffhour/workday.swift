@@ -119,3 +119,5 @@ struct Job: Hashable, Identifiable, Codable {
     static let exampleTwo = Job(title: "Stats Project", workdays: [WorkDay.example])
     static let exampleThree = Job(title: "co-op", workdays: [WorkDay.example])
 }
+
+

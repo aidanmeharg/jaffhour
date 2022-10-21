@@ -8,12 +8,13 @@
 import Foundation
 import Combine
 
+
 class ViewModel: ObservableObject {
     
     // URL for saving/loading JSON data
     private let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedItems")
     
-    // An active Combine chain that watches for changes to the `items` array, and calls save()
+    // An active Combine chain that watches for changes to the `jobs` array, and calls save()
     // 5 seconds after a change has happened.
     private var saveSubscription: AnyCancellable?
     
@@ -24,9 +25,11 @@ class ViewModel: ObservableObject {
         do {
             let data = try Data(contentsOf: savePath)
             jobs = try JSONDecoder().decode([Job].self, from: data)
+            // payees = try JSONDecoder().decode([String].self, from: data)
         } catch {
             // loading failed: start with new data
             jobs = []
+            // payees = [] ??? we need to save the payees!!!
         }
         
         // Wait 5 seconds after `jobs` has changed before calling `save()`, to
@@ -36,8 +39,6 @@ class ViewModel: ObservableObject {
             .sink { [weak self] _ in
                 self?.save()
                     }
-//        jobs = [Job.example, Job.exampleTwo, Job.exampleThree]
-//        payees = ["Home Depot", "A&B Tools", "Dicks Lumber"]
         
     }
     

@@ -61,7 +61,7 @@ struct JobView: View {
                     EditButton()
                 }
             }
-            .scrollContentBackground(.hidden)
+            //.scrollContentBackground(.hidden)
             .background(Color.green)
             .environment(\.editMode, $editMode)
             .navigationTitle(job.title)

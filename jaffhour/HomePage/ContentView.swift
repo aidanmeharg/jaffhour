@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-
-// possibly add an options menu to edit: payees 
+ 
 
 struct ContentView: View {
     
@@ -24,7 +23,7 @@ struct ContentView: View {
                 .onMove(perform: model.move)
             
         }
-        .scrollContentBackground(.hidden)
+        //.scrollContentBackground(.hidden)
         .background(Color.green)
         
         

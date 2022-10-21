@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6165876290222A500D8E3CB /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6165875290222A500D8E3CB /* DateHolder.swift */; };
+		C61658782902231B00D8E3CB /* MonthScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61658772902231B00D8E3CB /* MonthScrollerView.swift */; };
+		C616587A290224A100D8E3CB /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6165879290224A100D8E3CB /* CalendarHelper.swift */; };
+		C616587C29022F2200D8E3CB /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616587B29022F2200D8E3CB /* MonthlyView.swift */; };
+		C616587E290248D900D8E3CB /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616587D290248D900D8E3CB /* CalendarCell.swift */; };
+		C6165880290250E500D8E3CB /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616587F290250E500D8E3CB /* MonthStruct.swift */; };
 		C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F128F0B54100DA25B1 /* GlobalPayees.swift */; };
 		C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F828F2068200DA25B1 /* FileManagerExtension.swift */; };
 		C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */; };
@@ -28,6 +34,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C6165875290222A500D8E3CB /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
+		C61658772902231B00D8E3CB /* MonthScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthScrollerView.swift; sourceTree = "<group>"; };
+		C6165879290224A100D8E3CB /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		C616587B29022F2200D8E3CB /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
+		C616587D290248D900D8E3CB /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		C616587F290250E500D8E3CB /* MonthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
 		C63123F128F0B54100DA25B1 /* GlobalPayees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPayees.swift; sourceTree = "<group>"; };
 		C63123F828F2068200DA25B1 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTcodablestructs.swift; sourceTree = "<group>"; };
@@ -60,9 +72,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C61658742902227F00D8E3CB /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C6165875290222A500D8E3CB /* DateHolder.swift */,
+				C61658772902231B00D8E3CB /* MonthScrollerView.swift */,
+				C6165879290224A100D8E3CB /* CalendarHelper.swift */,
+				C616587B29022F2200D8E3CB /* MonthlyView.swift */,
+				C616587D290248D900D8E3CB /* CalendarCell.swift */,
+				C616587F290250E500D8E3CB /* MonthStruct.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		C63123F428F1F1C200DA25B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C61658742902227F00D8E3CB /* Calendar */,
 				C63123F628F1F24800DA25B1 /* HomePage */,
 				C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */,
 				C6E2206528E8DA5600A2DB55 /* WorkDayRow.swift */,
@@ -212,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E2206028E75E4100A2DB55 /* JobView.swift in Sources */,
+				C616587E290248D900D8E3CB /* CalendarCell.swift in Sources */,
 				C6E2205428E6492000A2DB55 /* workday.swift in Sources */,
 				C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */,
 				C6E0D16928EF5F9200DCD6C3 /* addExpenseView.swift in Sources */,
@@ -220,8 +247,13 @@
 				C6E2206628E8DA5600A2DB55 /* WorkDayRow.swift in Sources */,
 				C6E2206428E8D73F00A2DB55 /* addWorkDayView.swift in Sources */,
 				C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */,
+				C616587A290224A100D8E3CB /* CalendarHelper.swift in Sources */,
 				C6E2206828E8DF8100A2DB55 /* WorkDaysListView.swift in Sources */,
 				C6E2205A28E65E5800A2DB55 /* ViewModel.swift in Sources */,
+				C61658782902231B00D8E3CB /* MonthScrollerView.swift in Sources */,
+				C6165876290222A500D8E3CB /* DateHolder.swift in Sources */,
+				C6165880290250E500D8E3CB /* MonthStruct.swift in Sources */,
+				C616587C29022F2200D8E3CB /* MonthlyView.swift in Sources */,
 				C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */,
 				C6E0D16D28EF8E4E00DCD6C3 /* WorkDayDetailView.swift in Sources */,
 				C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */,
@@ -363,6 +395,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,6 +425,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
