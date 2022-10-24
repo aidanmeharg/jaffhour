@@ -44,6 +44,12 @@ class CalendarHelper {
     
     func weekDay(date: Date) -> Int {
         let components = calendar.dateComponents([.weekday], from: date)
-        return components.weekday! - 1
+        return components.weekday! - 2
     }
+    
+    // find a better way to do this
+    func isToday(date: Date) -> Bool {
+        return calendar.isDateInToday(date)
+    }
+    
 }

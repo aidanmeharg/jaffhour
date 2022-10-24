@@ -44,9 +44,10 @@ struct MonthlyView: View {
             let startingSpaces = CalendarHelper().weekDay(date: firstDayOfMonth)
             let prevMonth = CalendarHelper().decMonth(date: dateHolder.date)
             let daysInPrevMonth = CalendarHelper().daysInMonth(date: prevMonth)
+            
             ForEach(0..<6) { row in
                 HStack(spacing: 1) {
-                    ForEach(0..<8) { column in
+                    ForEach(0..<7) { column in
                         let count = column + (row * 7)
                         CalendarCell(count: count, startingSpaces: startingSpaces, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth)
                             .environmentObject(dateHolder)
@@ -59,8 +60,10 @@ struct MonthlyView: View {
 
 struct MonthlyView_Previews: PreviewProvider {
     static var previews: some View {
+        //Form {
             MonthlyView()
                 .environmentObject(DateHolder())
+        //}
     }
 }
 
@@ -69,7 +72,8 @@ extension Text {
     
     func dayOfWeek() -> some View {
         self.frame(maxWidth: .infinity)
-            .padding(.top, 1)
+            .font(.title2.bold())
+            .padding(.top)
             .lineLimit(1)
     }
 }

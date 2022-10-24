@@ -15,15 +15,31 @@ struct CalendarCell: View {
     let daysInMonth: Int
     let daysInPrevMonth: Int
     
+    
     var body: some View {
-        Text(monthStruct().day())
-            .foregroundColor(textColor(type: monthStruct().monthType))
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        ZStack {
+            Circle()
+                .imageScale(.small)
+                .foregroundColor(circleColor())
+            Text(monthStruct().day())
+                .foregroundColor(textColor(type: monthStruct().monthType))
+                .font(.title2.bold())
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
     }
     
     func textColor(type: MonthType) -> Color {
         return type == MonthType.Current ? Color.black : Color.gray
     }
+    
+    func circleColor() -> Color {
+        let start = startingSpaces == 0 ? startingSpaces + 7: startingSpaces
+        let isToday = CalendarHelper().isToday(date: Calendar.current.date(byAdding: .day, value: count - start - 1, to: CalendarHelper().firstOfMonth(date: dateHolder.date))!)
+        return isToday ? Color.green : Color.clear
+    }
+    
+    
     
     func monthStruct() -> MonthStruct {
         
