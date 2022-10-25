@@ -36,7 +36,7 @@ struct CalendarCell: View {
     func circleColor() -> Color {
         let start = startingSpaces == 0 ? startingSpaces + 7: startingSpaces
         let isToday = CalendarHelper().isToday(date: Calendar.current.date(byAdding: .day, value: count - start - 1, to: CalendarHelper().firstOfMonth(date: dateHolder.date))!)
-        return isToday ? Color.green : Color.clear
+        return isToday ? Color.indigo : Color.clear
     }
     
     

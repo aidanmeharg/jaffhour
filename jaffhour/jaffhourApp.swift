@@ -13,10 +13,10 @@ struct jaffhourApp: App {
     
     var body: some Scene {
         WindowGroup {
-            // Ensures time and wifi widgets remain viewable
-            NavigationView {
+            
+            
                 ContentView()
-            }
+            
         }
     }
 }

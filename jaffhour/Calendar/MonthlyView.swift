@@ -24,13 +24,19 @@ struct MonthlyView: View {
     }
     
     var weekdayStack: some View {
-        HStack(spacing: 1) {
+        HStack(spacing: 20) {
             Text("S").dayOfWeek()
+            //Spacer()
             Text("M").dayOfWeek()
+            //Spacer()
             Text("T").dayOfWeek()
+            //Spacer()
             Text("W").dayOfWeek()
+            //Spacer()
             Text("T").dayOfWeek()
+            //Spacer()
             Text("F").dayOfWeek()
+            //Spacer()
             Text("S").dayOfWeek()
             
         }
@@ -71,9 +77,14 @@ struct MonthlyView_Previews: PreviewProvider {
 extension Text {
     
     func dayOfWeek() -> some View {
-        self.frame(maxWidth: .infinity)
-            .font(.title2.bold())
-            .padding(.top)
-            .lineLimit(1)
+        ZStack {
+            Circle()
+                .imageScale(.small)
+                .foregroundColor(.clear)
+            self.font(.title2.bold())
+                //.lineLimit(1)
+        }
+        .frame(maxWidth: .infinity)
+        
     }
 }

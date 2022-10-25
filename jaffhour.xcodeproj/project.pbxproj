@@ -20,6 +20,7 @@
 		C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */; };
 		C6AF75AF28E3EE8100EFB374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */; };
 		C6AF75B228E3EE8100EFB374 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75B128E3EE8100EFB374 /* Preview Assets.xcassets */; };
+		C6DBC02B2908486F00818436 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DBC02A2908486F00818436 /* HomeTabView.swift */; };
 		C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */; };
 		C6E0D16928EF5F9200DCD6C3 /* addExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */; };
 		C6E0D16D28EF8E4E00DCD6C3 /* WorkDayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */; };
@@ -48,6 +49,7 @@
 		C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6AF75B128E3EE8100EFB374 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C6DBC02A2908486F00818436 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
 		C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addExpenseView.swift; sourceTree = "<group>"; };
 		C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDayDetailView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */,
 				C6E2205D28E6983F00A2DB55 /* JobRow.swift */,
+				C6DBC02A2908486F00818436 /* HomeTabView.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DBC02B2908486F00818436 /* HomeTabView.swift in Sources */,
 				C6E2206028E75E4100A2DB55 /* JobView.swift in Sources */,
 				C616587E290248D900D8E3CB /* CalendarCell.swift in Sources */,
 				C6E2205428E6492000A2DB55 /* workday.swift in Sources */,

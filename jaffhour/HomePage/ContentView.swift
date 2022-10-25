@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var model = ViewModel()
+    @ObservedObject var model = ViewModel() // move the viewmodel out to HomeTabView
+                                            // for calendar to access workdays
     
     @State private var selectedJobs:  Set<Job> = []
     
@@ -18,9 +19,12 @@ struct ContentView: View {
     
     var body: some View {
     
-        List(selection: $selectedJobs) {
-            ForEach($model.jobs, content: JobRow.init)
-                .onMove(perform: model.move)
+        VStack {
+            List(selection: $selectedJobs) {
+                ForEach($model.jobs, content: JobRow.init)
+                    .onMove(perform: model.move)
+                
+            }
             
         }
         //.scrollContentBackground(.hidden)
@@ -39,9 +43,8 @@ struct ContentView: View {
                     Label("Add New Job", systemImage: "plus")
                 }
             }
-            ToolbarItem(placement: .bottomBar) {
+            ToolbarItem(placement: .navigationBarTrailing) {
                
-                    HStack {
                         
                         Button(role: .destructive) {
                             model.delete(selectedJobs)
@@ -52,7 +55,9 @@ struct ContentView: View {
                                 
                         }
                         .disabled(selectedJobs.isEmpty || editMode == .inactive)
-                    }
+                        
+                        
+                    
                 
             }
         }
