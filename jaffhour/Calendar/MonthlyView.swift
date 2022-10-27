@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MonthlyView: View {
     
+    @ObservedObject var model: ViewModel
+    
     @EnvironmentObject var dateHolder: DateHolder
     
     var body: some View {
@@ -21,6 +23,7 @@ struct MonthlyView: View {
                 .padding()
             calendarGrid
         }
+        .padding(.horizontal)
     }
     
     var weekdayStack: some View {
@@ -67,7 +70,7 @@ struct MonthlyView: View {
 struct MonthlyView_Previews: PreviewProvider {
     static var previews: some View {
         //Form {
-            MonthlyView()
+            MonthlyView(model: ViewModel())
                 .environmentObject(DateHolder())
         //}
     }

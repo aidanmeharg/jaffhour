@@ -14,18 +14,22 @@ struct CalendarCell: View {
     let startingSpaces: Int
     let daysInMonth: Int
     let daysInPrevMonth: Int
+    @State var tapped = false
     
     
     var body: some View {
         ZStack {
             Circle()
                 .imageScale(.small)
-                .foregroundColor(circleColor())
+                .foregroundColor(tapped ? Color.green : circleColor())
             Text(monthStruct().day())
                 .foregroundColor(textColor(type: monthStruct().monthType))
                 .font(.title2.bold())
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onTapGesture {
+            tapped.toggle()
+        }
         
     }
     
@@ -36,7 +40,7 @@ struct CalendarCell: View {
     func circleColor() -> Color {
         let start = startingSpaces == 0 ? startingSpaces + 7: startingSpaces
         let isToday = CalendarHelper().isToday(date: Calendar.current.date(byAdding: .day, value: count - start - 1, to: CalendarHelper().firstOfMonth(date: dateHolder.date))!)
-        return isToday ? Color.indigo : Color.clear
+        return isToday ? Color.red : Color.clear
     }
     
     
