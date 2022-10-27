@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var model = ViewModel() // move the viewmodel out to HomeTabView
+    @ObservedObject var model: ViewModel // moved the viewmodel out to HomeTabView
                                             // for calendar to access workdays
     
     @State private var selectedJobs:  Set<Job> = []

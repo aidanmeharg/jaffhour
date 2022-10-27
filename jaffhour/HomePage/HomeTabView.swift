@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeTabView: View {
     
+    @ObservedObject var model = ViewModel()
+    
     @State private var selectedTab = "clients"
     
     private let dateHolder = DateHolder()
@@ -18,14 +20,14 @@ struct HomeTabView: View {
         TabView(selection: $selectedTab) {
             
             NavigationView {
-                ContentView()
+                ContentView(model: model)
             }
                 .tabItem {
                     Label("clients", systemImage: "person")
                 }
                 .tag("clients")
             
-            MonthlyView()
+            MonthlyView(model: model)
                 .environmentObject(dateHolder)
                 .tabItem {
                     Label("calendar", systemImage: "calendar")
