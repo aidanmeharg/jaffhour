@@ -11,6 +11,10 @@ struct MonthlyView: View {
     
     @ObservedObject var model: ViewModel
     
+    @State var showDaySheet = false
+    
+    @State var selectedDay = Date()
+    
     @EnvironmentObject var dateHolder: DateHolder
     
     var body: some View {
@@ -24,22 +28,20 @@ struct MonthlyView: View {
             calendarGrid
         }
         .padding(.horizontal)
+        .sheet(isPresented: $showDaySheet) {
+            WorkDayDetailView(workday: .constant(WorkDay(date: selectedDay, expenses: [], tasks: "bruh", notes: "quandii")))
+        }
+        
     }
     
     var weekdayStack: some View {
         HStack(spacing: 20) {
             Text("S").dayOfWeek()
-            //Spacer()
             Text("M").dayOfWeek()
-            //Spacer()
             Text("T").dayOfWeek()
-            //Spacer()
             Text("W").dayOfWeek()
-            //Spacer()
             Text("T").dayOfWeek()
-            //Spacer()
             Text("F").dayOfWeek()
-            //Spacer()
             Text("S").dayOfWeek()
             
         }
@@ -58,21 +60,22 @@ struct MonthlyView: View {
                 HStack(spacing: 1) {
                     ForEach(0..<7) { column in
                         let count = column + (row * 7)
-                        CalendarCell(count: count, startingSpaces: startingSpaces, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth)
+                        CalendarCell(count: count, startingSpaces: startingSpaces, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth, showDaySheet: $showDaySheet, selectedDay: $selectedDay)
                             .environmentObject(dateHolder)
+                            
                     }
                 }
             }
         }
+        
     }
 }
 
 struct MonthlyView_Previews: PreviewProvider {
     static var previews: some View {
-        //Form {
+    
             MonthlyView(model: ViewModel())
                 .environmentObject(DateHolder())
-        //}
     }
 }
 

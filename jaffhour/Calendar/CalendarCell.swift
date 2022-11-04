@@ -15,6 +15,8 @@ struct CalendarCell: View {
     let daysInMonth: Int
     let daysInPrevMonth: Int
     @State var tapped = false
+    @Binding var showDaySheet: Bool
+    @Binding var selectedDay: Date
     
     
     var body: some View {
@@ -29,12 +31,20 @@ struct CalendarCell: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onTapGesture {
             tapped.toggle()
+            updateSelectedDay()
+            showDaySheet.toggle()
         }
         
     }
     
     func textColor(type: MonthType) -> Color {
         return type == MonthType.Current ? Color.black : Color.gray
+    }
+    
+    func updateSelectedDay() {
+        let start = startingSpaces == 0 ? startingSpaces + 7: startingSpaces
+        
+        selectedDay = Calendar.current.date(byAdding: .day, value: count - start - 1, to: CalendarHelper().firstOfMonth(date: dateHolder.date))!
     }
     
     func circleColor() -> Color {
@@ -60,7 +70,7 @@ struct CalendarCell: View {
 
 struct CalendarCell_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarCell(count: 1, startingSpaces: 1, daysInMonth: 1, daysInPrevMonth: 1)
+        CalendarCell(count: 1, startingSpaces: 1, daysInMonth: 1, daysInPrevMonth: 1, showDaySheet: .constant(false), selectedDay: .constant(Date()))
             .environmentObject(DateHolder())
     }
 }
