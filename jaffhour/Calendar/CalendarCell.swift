@@ -14,6 +14,7 @@ struct CalendarCell: View {
     let startingSpaces: Int
     let daysInMonth: Int
     let daysInPrevMonth: Int
+    // ideally each CalendarCell should represent their respective date
     @State var tapped = false
     @Binding var showDaySheet: Bool
     @Binding var selectedDay: Date
@@ -30,7 +31,7 @@ struct CalendarCell: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onTapGesture {
-            tapped.toggle()
+            //tapped.toggle()
             updateSelectedDay()
             showDaySheet.toggle()
         }

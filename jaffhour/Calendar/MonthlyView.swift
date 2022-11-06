@@ -17,8 +17,9 @@ struct MonthlyView: View {
     
     @EnvironmentObject var dateHolder: DateHolder
     
+    
     var body: some View {
-      
+        
         VStack(spacing: 1) {
             MonthScrollerView()
                 .environmentObject(dateHolder)
@@ -29,7 +30,9 @@ struct MonthlyView: View {
         }
         .padding(.horizontal)
         .sheet(isPresented: $showDaySheet) {
-            WorkDayDetailView(workday: .constant(WorkDay(date: selectedDay, expenses: [], tasks: "bruh", notes: "quandii")))
+            WorkdaysTable(jobs: model.jobs, selectedDay: selectedDay)
+            // make this view accept a list of workdays
+            // add method to get workdays from model for selectedDay
         }
         
     }
@@ -69,7 +72,9 @@ struct MonthlyView: View {
         }
         
     }
+    
 }
+
 
 struct MonthlyView_Previews: PreviewProvider {
     static var previews: some View {

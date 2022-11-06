@@ -9,31 +9,66 @@ import SwiftUI
 
 struct WorkDayDetailView: View {
     
-    @Binding var workday: WorkDay
+    let workday: WorkDay
+    
+    let CORNER_RADIUS = CGFloat(25)
     
     private let dateformatter = DateFormatter()
+    private let timeformatter = DateFormatter()
     
-    init(workday: Binding<WorkDay>) {
-        self._workday = workday
-        dateformatter.dateFormat = "dd/MM/yyyy"
+    init(workday: WorkDay) {
+        self.workday = workday
+        dateformatter.dateStyle = .long
+        dateformatter.timeStyle = .none // don't really need the dateformatter, just time
+        timeformatter.dateStyle = .none
+        timeformatter.timeStyle = .short
     }
     
     var body: some View {
         VStack {
-            Text("\(dateformatter.string(from: workday.date))")
-            Text(workday.tasks)
-            Text(workday.notes)
-            ForEach(workday.expenses, id: \.id) { expense in
-                Text(expense.name)
-                Text(expense.description)
-                Text("\(expense.amount)")
+            Text("\(timeformatter.string(from: workday.startTime)) to \(timeformatter.string(from: workday.endTime))")
+                .padding(.top)
+            Text("\(String(format: "%.2f", workday.hours)) hours")
+                .padding(.bottom)
+            Text("\(workday.tasks)")
+                .multilineTextAlignment(.leading)
+                .padding(.bottom)
+                .padding(.horizontal)
+            VStack {
+                ForEach(workday.expenses, id: \.id) { expense in
+                    HStack {
+                        Text("\(expense.name)")
+                            .padding(.horizontal)
+                        Spacer()
+                        Text("\(expense.description)")
+                            .multilineTextAlignment(.leading) // is this even doing anything??
+                            .padding(.top)
+                        Spacer()
+                        Text("$\(String(format: "%.2f", expense.amount))")
+                            .padding(.horizontal)
+                    }
+                    .padding(.bottom)
+                }
+                HStack {
+                    Spacer()
+                    let amounts = workday.expenses.map { $0.amount }
+                    Text("$\(String(format: "%.2f", amounts.reduce(0, +)))")
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                }
             }
+            Text("\(workday.notes)")
+                .padding(.bottom)
+            
         }
+        .background(RoundedRectangle(cornerRadius: CORNER_RADIUS).foregroundColor(.green))
+        .padding(.horizontal)
     }
 }
 
+
 struct WorkDayDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkDayDetailView(workday: .constant(WorkDay.example))
+        WorkDayDetailView(workday: WorkDay.example)
     }
 }

@@ -20,7 +20,7 @@ struct WorkDayRow: View {
     
     var body: some View {
         NavigationLink {
-            WorkDayDetailView(workday: $workday)
+            WorkDayDetailView(workday: workday)
         } label: {
             Label("\(dateformatter.string(from: workday.date)) \(String(format: "%.2f", round(workday.hours * 100) / 100.0)) hours", systemImage: "calendar")
         }
