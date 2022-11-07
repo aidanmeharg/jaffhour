@@ -42,7 +42,7 @@ struct WorkDayDetailView: View {
                         Spacer()
                         Text("\(expense.description)")
                             .multilineTextAlignment(.leading) // is this even doing anything??
-                            .padding(.top)
+                            //.padding(.top)
                         Spacer()
                         Text("$\(String(format: "%.2f", expense.amount))")
                             .padding(.horizontal)

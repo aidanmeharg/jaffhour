@@ -35,7 +35,7 @@ struct addWorkDayView: View {
             Text("\(job.title)")
             
             
-            //VStack {
+           
             Form {
                 
                 HStack {
@@ -54,7 +54,7 @@ struct addWorkDayView: View {
                         .labelsHidden()
                 }
                 
-                //}
+                
                 
                 Section {
                     Text("Tasks")
@@ -88,28 +88,25 @@ struct addWorkDayView: View {
                     TextField("Additional Notes", text: $workday.notes)
                     // , axis: .vertical
                 }
-                Section {
-                    Text("add to \(job.title)")
-                        .foregroundColor(.accentColor)
-                        .frame(maxWidth: .infinity)
-                        .onTapGesture {
-                            workday.updateHours()
-                            
-                            workday.expenses.append(contentsOf: expenses)
-                            if (!job.addWorkDay(workday: workday)) {
-                                invalidDay = true
-                                return
-                            } else {
-                                job.updateTotalHours()
-                                job.updateTotalExpenses()
-                                job.workdays.sort {
-                                    $0.date > $1.date
-                                }
-                                isPresented = false
-                            }
-                        }
+                Button {
+                    workday.updateHours()
                     
+                    workday.expenses.append(contentsOf: expenses)
+                    if (!job.addWorkDay(workday: workday)) {
+                        invalidDay = true
+                        return
+                    } else {
+                        job.updateTotalHours()
+                        job.updateTotalExpenses()
+                        job.workdays.sort {
+                            $0.date > $1.date
+                        }
+                        isPresented = false
+                    }
+                } label: {
+                    Label("add to \(job.title)", systemImage: "plus")
                 }
+                .buttonStyle(BorderlessButtonStyle())
             }
                 .alert(isPresented: $invalidDay) {
                     Alert(title: Text("Highly Doubtful that you worked for \(String(format: "%.2f", round(workday.hours * 100) / 100.0)) hours... unless you're building a time machine?"))

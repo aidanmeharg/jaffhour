@@ -19,12 +19,16 @@ final class GlobalPayees {
         return instance
     }()
     
-    init(payees: [String] = [""]) {
+    init(payees: [String] = []) {
         self.payees = payees
     }
     
-    // TODO: should update to check for duplicates
     func addPayee(payee: String) {
         payees.append(payee)
+        if (Set(payees).count == payees.count) { // not a great implementation in terms of space usage but the payee lists aren't going to be huge
+            return // no duplicates
+        } else {
+            payees.removeLast()
+        }
     }
 }

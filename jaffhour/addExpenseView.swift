@@ -27,25 +27,29 @@ struct addExpenseView: View {
                 
                 Toggle("New Payee", isOn: $newPayee)
                     .padding(.all)
+                    .buttonStyle(BorderlessButtonStyle())
                 if newPayee {
                     
                     HStack {
                         TextField("Payee Name", text: $selectedPayee)
                             .padding(.all)
                         Button {
-                            globalpayees.addPayee(payee: selectedPayee)
-                            updatePayee()
-                            newPayee = false
+                            if (selectedPayee != "" && true) { // no duplicate!
+                                globalpayees.addPayee(payee: selectedPayee)
+                                updatePayee()
+                                newPayee = false
+                            }
                         } label: {
                             Label("add to payees", systemImage: "plus")
                         }
+                        .buttonStyle(BorderlessButtonStyle())
                     }
                     
                     
                 } else {
                     
-                    // Obviously theres no link between selectedPayee and expense.name
                     Picker("Payable to: ", selection: $selectedPayee) {
+                        
                         ForEach(globalpayees.payees, id: \.self) { //payee in
                             Text($0)
                         }
@@ -54,14 +58,17 @@ struct addExpenseView: View {
                         }
                     }
                     .padding(.all)
+                    .buttonStyle(BorderlessButtonStyle())
                     
                     
                     TextField("Description", text: $expense.description)
                         .padding(.all)
+                        .buttonStyle(BorderlessButtonStyle())
                     
                     TextField("Amount", value: $expense.amount, format: .currency(code: "CAD"))
                         .keyboardType(.decimalPad)
                         .padding(.all)
+                        .buttonStyle(BorderlessButtonStyle())
                     
                 }
                 
