@@ -19,7 +19,7 @@ struct JobView: View {
     
     init(job: Binding<Job>) {
         self._job = job
-        dateformatter.dateFormat = "dd/MM/yyyy"
+        dateformatter.dateFormat = "MMM dd yyyy"
     }
     
     var body: some View {
@@ -35,7 +35,7 @@ struct JobView: View {
                     }
                 }
                 Section {
-                    Label("Date Started: \(dateformatter.string(from: job.startDate))", systemImage: "calendar")
+                    Label("Since: \(dateformatter.string(from: job.startDate))", systemImage: "calendar")
                 }
                 Section {
                     Label("Total Hours: \(String(format: "%.2f", round(job.totalhours * 100) / 100.0))", systemImage: "clock")

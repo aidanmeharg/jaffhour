@@ -34,7 +34,13 @@ class ViewModel: ObservableObject {
         } catch {
             // loading failed: start with new data
             jobs = []
-            globalpayees.payees = ["Where did they go?"]
+            globalpayees.payees = []
+        }
+        // sort jobs in case of previous changes made 
+        for var job in jobs {
+            job.workdays.sort {
+                $0.date > $1.date
+            }
         }
         
         // Wait 5 seconds after `jobs` has changed before calling `save()`, to

@@ -15,7 +15,9 @@ struct WorkDaysListView: View {
     
     var body: some View {
         List(selection: $selectedDays) {
-            ForEach($job.workdays, content: WorkDayRow.init)
+            ForEach($job.workdays) { workday in
+                WorkDayRow(workday: workday, job: $job)
+            }
         }
         .navigationTitle("Work Days")
     }

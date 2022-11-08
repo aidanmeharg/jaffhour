@@ -17,6 +17,7 @@
 		C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F828F2068200DA25B1 /* FileManagerExtension.swift */; };
 		C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */; };
 		C659B33029158E6C00A4C139 /* WorkdaysTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */; };
+		C659B3322918C72400A4C139 /* EditableWorkDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659B3312918C72400A4C139 /* EditableWorkDayView.swift */; };
 		C6AF75AB28E3EE7E00EFB374 /* jaffhourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */; };
 		C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */; };
 		C6AF75AF28E3EE8100EFB374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		C63123F828F2068200DA25B1 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTcodablestructs.swift; sourceTree = "<group>"; };
 		C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkdaysTable.swift; sourceTree = "<group>"; };
+		C659B3312918C72400A4C139 /* EditableWorkDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableWorkDayView.swift; sourceTree = "<group>"; };
 		C6AF75A728E3EE7E00EFB374 /* jaffhour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaffhour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jaffhourApp.swift; sourceTree = "<group>"; };
 		C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */,
 				C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */,
 				C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */,
+				C659B3312918C72400A4C139 /* EditableWorkDayView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				C6E2205428E6492000A2DB55 /* workday.swift in Sources */,
 				C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */,
 				C6E0D16928EF5F9200DCD6C3 /* addExpenseView.swift in Sources */,
+				C659B3322918C72400A4C139 /* EditableWorkDayView.swift in Sources */,
 				C6E2205E28E6983F00A2DB55 /* JobRow.swift in Sources */,
 				C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */,
 				C6E2206628E8DA5600A2DB55 /* WorkDayRow.swift in Sources */,
