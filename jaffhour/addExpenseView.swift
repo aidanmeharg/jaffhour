@@ -34,7 +34,7 @@ struct addExpenseView: View {
                         TextField("Payee Name", text: $selectedPayee)
                             .padding(.all)
                         Button {
-                            if (selectedPayee != "" && true) { // no duplicate!
+                            if (selectedPayee != "") { 
                                 globalpayees.addPayee(payee: selectedPayee)
                                 updatePayee()
                                 newPayee = false
@@ -59,7 +59,7 @@ struct addExpenseView: View {
                                 updatePayee()
                             }
                         }
-                        .pickerStyle(.wheel)
+                        .pickerStyle(.menu)
                         .padding(.all)
                         .buttonStyle(BorderlessButtonStyle())
                     }

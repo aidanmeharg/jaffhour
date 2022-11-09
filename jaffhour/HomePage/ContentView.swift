@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+
+// TODO: make payees editable (remove payees)
+// TODO: make workdays deletable
  
 
 struct ContentView: View {

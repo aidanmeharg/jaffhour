@@ -101,6 +101,16 @@ struct Job: Hashable, Identifiable, Codable {
         }
     }
     
+    mutating func delete(_ offSets: IndexSet) {
+        workdays.remove(atOffsets: offSets)
+    }
+    
+    mutating func delete(_ selected: Set<WorkDay>) {
+           workdays.removeAll(where: selected.contains)
+        updateTotalHours()
+        updateTotalExpenses()
+       }
+    
     
     init(title: String, workdays: [WorkDay] = [], payees: [String] = [], totalhours: Double = 0.0, totalExpenses: Double = 0.0) {
         self.title = title

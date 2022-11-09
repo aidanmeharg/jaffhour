@@ -80,14 +80,21 @@ struct EditableWorkDayView: View {
         .onDisappear(perform: {
             editableWorkday.updateHours()
             if (editableWorkday.hours < 0) {
-                return
+                return // should show some kind of error message
             }
+            let dateChanged = editableWorkday.date != workday.date
+            let hoursChanged = editableWorkday.hours != workday.hours
             workday = editableWorkday
-            job.updateTotalHours()
-            job.updateTotalExpenses()
-            job.workdays.sort {
-                $0.date > $1.date
+            if (hoursChanged) {
+                job.updateTotalHours()
             }
+            job.updateTotalExpenses()
+            if (dateChanged) {
+                job.workdays.sort {
+                    $0.date > $1.date
+                }
+            }
+            
         }) // update the binding workday
     }
 }
