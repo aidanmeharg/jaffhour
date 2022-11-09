@@ -23,7 +23,7 @@ struct CalendarCell: View {
     var body: some View {
         ZStack {
             Circle()
-                .imageScale(.small)
+                //.imageScale(.small)
                 .foregroundColor(tapped ? Color.green : circleColor())
             Text(monthStruct().day())
                 .foregroundColor(textColor(type: monthStruct().monthType))

@@ -48,17 +48,21 @@ struct addExpenseView: View {
                     
                 } else {
                     
-                    Picker("Payable to: ", selection: $selectedPayee) {
+                    VStack {
                         
-                        ForEach(globalpayees.payees, id: \.self) { //payee in
-                            Text($0)
+                        Picker("Payable to: ", selection: $selectedPayee) {
+                            
+                            ForEach(globalpayees.payees, id: \.self) { //payee in
+                                Text($0)
+                            }
+                            .onChange(of: selectedPayee) { newValue in
+                                updatePayee()
+                            }
                         }
-                        .onChange(of: selectedPayee) { newValue in
-                            updatePayee()
-                        }
+                        .pickerStyle(.wheel)
+                        .padding(.all)
+                        .buttonStyle(BorderlessButtonStyle())
                     }
-                    .padding(.all)
-                    .buttonStyle(BorderlessButtonStyle())
                     
                     
                     TextField("Description", text: $expense.description)

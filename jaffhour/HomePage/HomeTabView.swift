@@ -35,7 +35,7 @@ struct HomeTabView: View {
                 .tag("calendar")
         }
         //.scrollContentBackground(.hidden)
-        .background(Color.green)
+//        .background(Color.green)
     }
     
     struct HomeTabView_Previews: PreviewProvider {

@@ -19,6 +19,8 @@ struct EditableWorkDayView: View {
         editableWorkday.expenses.remove(atOffsets: offsets)
     }
 
+    // This is pretty much duplicate of addWorkDayView
+    // TODO: GET SOME REFACTORING DONE!
     
     var body: some View {
         

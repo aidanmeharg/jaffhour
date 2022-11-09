@@ -20,13 +20,15 @@ struct MonthlyView: View {
     
     var body: some View {
         
-        VStack(spacing: 1) {
+        VStack {
             MonthScrollerView()
                 .environmentObject(dateHolder)
-                .padding()
+                .padding(.vertical)
+        
             weekdayStack
-                .padding()
+                
             calendarGrid
+            
         }
         .padding(.horizontal)
         .sheet(isPresented: $showDaySheet) {
@@ -38,7 +40,7 @@ struct MonthlyView: View {
     }
     
     var weekdayStack: some View {
-        HStack(spacing: 20) {
+        HStack {
             Text("S").dayOfWeek()
             Text("M").dayOfWeek()
             Text("T").dayOfWeek()
@@ -52,7 +54,7 @@ struct MonthlyView: View {
     
     var calendarGrid: some View {
         
-        VStack(spacing: 1) {
+        VStack {
             let daysInMonth = CalendarHelper().daysInMonth(date: dateHolder.date)
             let firstDayOfMonth = CalendarHelper().firstOfMonth(date: dateHolder.date)
             let startingSpaces = CalendarHelper().weekDay(date: firstDayOfMonth)
@@ -88,14 +90,7 @@ struct MonthlyView_Previews: PreviewProvider {
 extension Text {
     
     func dayOfWeek() -> some View {
-        ZStack {
-            Circle()
-                .imageScale(.small)
-                .foregroundColor(.clear)
-            self.font(.title2.bold())
-                //.lineLimit(1)
-        }
-        .frame(maxWidth: .infinity)
+            self.font(.title2.bold()).frame(maxWidth: .infinity)
         
     }
 }
