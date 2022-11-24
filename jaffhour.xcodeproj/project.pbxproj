@@ -22,6 +22,7 @@
 		C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */; };
 		C6AF75AF28E3EE8100EFB374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */; };
 		C6AF75B228E3EE8100EFB374 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75B128E3EE8100EFB374 /* Preview Assets.xcassets */; };
+		C6C3EFFC292F409F00E55079 /* EditPayeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C3EFFB292F409F00E55079 /* EditPayeesView.swift */; };
 		C6DBC02B2908486F00818436 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DBC02A2908486F00818436 /* HomeTabView.swift */; };
 		C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */; };
 		C6E0D16928EF5F9200DCD6C3 /* addExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */; };
@@ -53,6 +54,7 @@
 		C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6AF75B128E3EE8100EFB374 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C6C3EFFB292F409F00E55079 /* EditPayeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPayeesView.swift; sourceTree = "<group>"; };
 		C6DBC02A2908486F00818436 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		C6E0D16628EF529000DCD6C3 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
 		C6E0D16828EF5F9200DCD6C3 /* addExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addExpenseView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				C6E0D16C28EF8E4D00DCD6C3 /* WorkDayDetailView.swift */,
 				C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */,
 				C659B3312918C72400A4C139 /* EditableWorkDayView.swift */,
+				C6C3EFFB292F409F00E55079 /* EditPayeesView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				C6E2206628E8DA5600A2DB55 /* WorkDayRow.swift in Sources */,
 				C6E2206428E8D73F00A2DB55 /* addWorkDayView.swift in Sources */,
 				C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */,
+				C6C3EFFC292F409F00E55079 /* EditPayeesView.swift in Sources */,
 				C616587A290224A100D8E3CB /* CalendarHelper.swift in Sources */,
 				C6E2206828E8DF8100A2DB55 /* WorkDaysListView.swift in Sources */,
 				C6E2205A28E65E5800A2DB55 /* ViewModel.swift in Sources */,
@@ -407,7 +411,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,7 +441,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

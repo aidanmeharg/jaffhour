@@ -46,7 +46,7 @@ struct EditableWorkDayView: View {
             Section {
                 Text("Tasks")
                     .font(.title)
-                TextField("What got done?", text: $editableWorkday.tasks)
+                TextField("What got done?", text: $editableWorkday.tasks, axis: .vertical)
                 // , axis: .vertical
             }
             Section {
@@ -70,8 +70,8 @@ struct EditableWorkDayView: View {
             Section {
                 Text("Notes")
                     .font(.title)
-                TextField("Additional Notes", text: $editableWorkday.notes)
-                // , axis: .vertical
+                TextField("Additional Notes", text: $editableWorkday.notes, axis: .vertical)
+                
             }
             
             

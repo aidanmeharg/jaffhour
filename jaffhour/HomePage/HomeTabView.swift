@@ -33,6 +33,7 @@ struct HomeTabView: View {
                     Label("calendar", systemImage: "calendar")
                 }
                 .tag("calendar")
+            
         }
         //.scrollContentBackground(.hidden)
 //        .background(Color.green)

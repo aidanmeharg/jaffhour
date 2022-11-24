@@ -8,7 +8,6 @@
 import SwiftUI
 
 // TODO: make payees editable (remove payees)
-// TODO: make workdays deletable
  
 
 struct ContentView: View {
@@ -27,11 +26,19 @@ struct ContentView: View {
                 ForEach($model.jobs, content: JobRow.init)
                     .onMove(perform: model.move)
                 
+                Spacer()
+                Text("Edit Payees:")
+                    .font(.title2.bold())
+                NavigationLink {
+                    //
+                } label: {
+                    Label("", systemImage: "gearshape.circle")
+                }
             }
             
         }
         //.scrollContentBackground(.hidden)
-        .background(Color.green)
+        //.background(Color.green)
         
         
         .navigationTitle("Clients")

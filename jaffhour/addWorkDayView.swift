@@ -59,8 +59,8 @@ struct addWorkDayView: View {
                 Section {
                     Text("Tasks")
                         .font(.title)
-                    TextField("What got done?", text: $workday.tasks)
-                    // , axis: .vertical
+                    TextField("What got done?", text: $workday.tasks, axis: .vertical)
+                    
                 }
                 Section {
                     Text("Expenses")
@@ -85,8 +85,8 @@ struct addWorkDayView: View {
                 Section {
                     Text("Notes")
                         .font(.title)
-                    TextField("Additional Notes", text: $workday.notes)
-                    // , axis: .vertical
+                    TextField("Additional Notes", text: $workday.notes, axis: .vertical)
+                    
                 }
                 Button {
                     workday.updateHours()
@@ -104,7 +104,8 @@ struct addWorkDayView: View {
                         isPresented = false
                     }
                 } label: {
-                    Label("add to \(job.title)", systemImage: "plus")
+                    Label("save this workday", systemImage: "checkmark")
+
                 }
                 .buttonStyle(BorderlessButtonStyle())
             }
@@ -113,7 +114,7 @@ struct addWorkDayView: View {
                 }
                 
                 //.scrollContentBackground(.hidden)
-                .background(Color.green)
+                //.background(Color.green)
                 
                 
             }
