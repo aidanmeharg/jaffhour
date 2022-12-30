@@ -30,7 +30,7 @@ struct ContentView: View {
                 Text("Edit Payees:")
                     .font(.title2.bold())
                 NavigationLink {
-                    //
+                    EditPayeesView()
                 } label: {
                     Label("", systemImage: "gearshape.circle")
                 }

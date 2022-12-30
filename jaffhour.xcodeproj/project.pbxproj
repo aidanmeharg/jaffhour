@@ -18,6 +18,7 @@
 		C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */; };
 		C659B33029158E6C00A4C139 /* WorkdaysTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */; };
 		C659B3322918C72400A4C139 /* EditableWorkDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659B3312918C72400A4C139 /* EditableWorkDayView.swift */; };
+		C673826D295F913300E1594A /* CSVExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673826C295F913300E1594A /* CSVExportView.swift */; };
 		C6AF75AB28E3EE7E00EFB374 /* jaffhourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */; };
 		C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */; };
 		C6AF75AF28E3EE8100EFB374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AF75AE28E3EE8100EFB374 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTcodablestructs.swift; sourceTree = "<group>"; };
 		C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkdaysTable.swift; sourceTree = "<group>"; };
 		C659B3312918C72400A4C139 /* EditableWorkDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableWorkDayView.swift; sourceTree = "<group>"; };
+		C673826C295F913300E1594A /* CSVExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExportView.swift; sourceTree = "<group>"; };
 		C6AF75A728E3EE7E00EFB374 /* jaffhour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaffhour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AF75AA28E3EE7E00EFB374 /* jaffhourApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jaffhourApp.swift; sourceTree = "<group>"; };
 		C6AF75AC28E3EE7E00EFB374 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */,
 				C659B3312918C72400A4C139 /* EditableWorkDayView.swift */,
 				C6C3EFFB292F409F00E55079 /* EditPayeesView.swift */,
+				C673826C295F913300E1594A /* CSVExportView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				C6DBC02B2908486F00818436 /* HomeTabView.swift in Sources */,
 				C6E2206028E75E4100A2DB55 /* JobView.swift in Sources */,
+				C673826D295F913300E1594A /* CSVExportView.swift in Sources */,
 				C659B33029158E6C00A4C139 /* WorkdaysTable.swift in Sources */,
 				C616587E290248D900D8E3CB /* CalendarCell.swift in Sources */,
 				C6E2205428E6492000A2DB55 /* workday.swift in Sources */,

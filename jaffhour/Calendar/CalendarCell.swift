@@ -31,7 +31,7 @@ struct CalendarCell: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onTapGesture {
-            //tapped.toggle()
+            tapped.toggle()
             updateSelectedDay()
             showDaySheet.toggle()
         }
@@ -49,9 +49,13 @@ struct CalendarCell: View {
     }
     
     func circleColor() -> Color {
+        let oneDay = Color(red: 156/255, green: 233/255, blue: 172/255)
+        let twoDays = Color(red: 68/255, green: 196/255, blue: 106/255)
+        let threePlus = Color(red: 51/255, green: 161/255, blue: 83/255)
         let start = startingSpaces == 0 ? startingSpaces + 7: startingSpaces
         let isToday = CalendarHelper().isToday(date: Calendar.current.date(byAdding: .day, value: count - start - 1, to: CalendarHelper().firstOfMonth(date: dateHolder.date))!)
-        return isToday ? Color.green : Color.clear
+        // TODO: connect this view with viewmodel and get # of jobs with a workday on this day
+        return isToday ? Color.green : oneDay
     }
     
     
