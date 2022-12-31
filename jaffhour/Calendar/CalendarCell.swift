@@ -55,12 +55,13 @@ struct CalendarCell: View {
         let threePlus = Color(red: 51/255, green: 161/255, blue: 83/255)
         let start = startingSpaces == 0 ? startingSpaces + 7: startingSpaces
         let thisDate = Calendar.current.date(byAdding: .day, value: count - start - 1, to: CalendarHelper().firstOfMonth(date: dateHolder.date))!
+        
         let isToday = CalendarHelper().isToday(date: thisDate)
         var nwd = 0
         for job in jobs {
-            for wd in job.workdays.reversed() { // use reversed because much more likely that calendar will be displaying most recent workdays
+            for wd in job.workdays { // use reversed because much more likely that calendar will be displaying most recent workdays
                 // should definitely still make this more efficient (the little date bubbles themselves should not have to sift through jobs/workdays)
-                if wd.date < Calendar.current.date(byAdding: .day, value: -7, to: thisDate)! {
+                if wd.date < thisDate {
                     break
                 }
                 if Calendar.current.isDate(wd.date, equalTo: thisDate, toGranularity: .day) {

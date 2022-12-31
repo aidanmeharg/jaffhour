@@ -32,7 +32,7 @@ struct ContentView: View {
                 NavigationLink {
                     EditPayeesView()
                 } label: {
-                    Label("", systemImage: "gearshape.circle")
+                    Label("", systemImage: "gearshape.fill")
                 }
             }
             
