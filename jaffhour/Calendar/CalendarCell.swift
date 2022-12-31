@@ -31,7 +31,7 @@ struct CalendarCell: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onTapGesture {
-            tapped.toggle()
+            //tapped.toggle()
             updateSelectedDay()
             showDaySheet.toggle()
         }

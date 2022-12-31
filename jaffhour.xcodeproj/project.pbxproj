@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A38AEC008CC1808ACE2C70F /* Pods_jaffhour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736CB151BC966AB4D63425EB /* Pods_jaffhour.framework */; };
 		C6165876290222A500D8E3CB /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6165875290222A500D8E3CB /* DateHolder.swift */; };
 		C61658782902231B00D8E3CB /* MonthScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61658772902231B00D8E3CB /* MonthScrollerView.swift */; };
 		C616587A290224A100D8E3CB /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6165879290224A100D8E3CB /* CalendarHelper.swift */; };
@@ -39,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		329094FAFD57F33429E3E01C /* Pods-jaffhour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaffhour.debug.xcconfig"; path = "Target Support Files/Pods-jaffhour/Pods-jaffhour.debug.xcconfig"; sourceTree = "<group>"; };
+		5F8D19C4A8DD89F7F127772D /* Pods-jaffhour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaffhour.release.xcconfig"; path = "Target Support Files/Pods-jaffhour/Pods-jaffhour.release.xcconfig"; sourceTree = "<group>"; };
+		736CB151BC966AB4D63425EB /* Pods_jaffhour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaffhour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6165875290222A500D8E3CB /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
 		C61658772902231B00D8E3CB /* MonthScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthScrollerView.swift; sourceTree = "<group>"; };
 		C6165879290224A100D8E3CB /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
@@ -76,12 +80,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A38AEC008CC1808ACE2C70F /* Pods_jaffhour.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04BCC02D4221A13A8F28C09F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				736CB151BC966AB4D63425EB /* Pods_jaffhour.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0E8BC694A750B4645E17E15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				329094FAFD57F33429E3E01C /* Pods-jaffhour.debug.xcconfig */,
+				5F8D19C4A8DD89F7F127772D /* Pods-jaffhour.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C61658742902227F00D8E3CB /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +171,8 @@
 			children = (
 				C6AF75A928E3EE7E00EFB374 /* jaffhour */,
 				C6AF75A828E3EE7E00EFB374 /* Products */,
+				A0E8BC694A750B4645E17E15 /* Pods */,
+				04BCC02D4221A13A8F28C09F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6AF75B528E3EE8100EFB374 /* Build configuration list for PBXNativeTarget "jaffhour" */;
 			buildPhases = (
+				FFD3834EFAFCB87EE43D8572 /* [CP] Check Pods Manifest.lock */,
 				C6AF75A328E3EE7E00EFB374 /* Sources */,
 				C6AF75A428E3EE7E00EFB374 /* Frameworks */,
 				C6AF75A528E3EE7E00EFB374 /* Resources */,
+				F6926B8100D0837A820220B3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,6 +273,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F6926B8100D0837A820220B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jaffhour/Pods-jaffhour-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jaffhour/Pods-jaffhour-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jaffhour/Pods-jaffhour-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFD3834EFAFCB87EE43D8572 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jaffhour-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6AF75A328E3EE7E00EFB374 /* Sources */ = {
@@ -401,6 +470,7 @@
 		};
 		C6AF75B628E3EE8100EFB374 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 329094FAFD57F33429E3E01C /* Pods-jaffhour.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -431,6 +501,7 @@
 		};
 		C6AF75B728E3EE8100EFB374 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F8D19C4A8DD89F7F127772D /* Pods-jaffhour.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

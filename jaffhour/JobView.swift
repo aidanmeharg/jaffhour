@@ -13,6 +13,9 @@ struct JobView: View {
     
     @State private var editMode = EditMode.inactive
     
+    @State private var startExpDate = Date()
+    @State private var endExpDate = Date()
+    
     @State var showAddSheet = false
     
     private let dateformatter = DateFormatter()
@@ -54,6 +57,22 @@ struct JobView: View {
                     } label: {
                         Label("Add Workday", systemImage: "plus.circle")
                     }
+                }
+                Section {
+                    VStack {
+                        Text("Export Workdays in Date Range:")
+                        HStack {
+                            Text("Start:")
+                            DatePicker("", selection: $startExpDate, displayedComponents: .date)
+                        }
+                        HStack {
+                            Text("End:")
+                            DatePicker("", selection: $endExpDate, displayedComponents: .date)
+                        }
+                    }
+                }
+                Section {
+                    CSVExportView(job: job, start: startExpDate, end: endExpDate)
                 }
             }
             .toolbar {
