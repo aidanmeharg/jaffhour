@@ -30,18 +30,49 @@ struct CSVExportView: View {
             dateFormatter.dateFormat = "dd-MMM-YY"
             timeFormatter.dateStyle = .none
             timeFormatter.timeStyle = .short
-            for wd in job.workdays {
+            for wd in job.workdays.reversed() {
                 if wd.date >= start && wd.date <= end {
-                    inputData.append([dateFormatter.string(from: wd.date),
-                                      timeFormatter.string(from: wd.startTime),
-                                      timeFormatter.string(from: wd.endTime),
-                                      String(wd.hours),
-                                      wd.tasks,
-                                     "payee here",
-                                      "expense description here",
-                                      "expense amount here",
-                                      String(wd.expenses.map{$0.amount}.reduce(0, +)),
-                                      wd.notes])
+                    if wd.expenses.count == 0 {
+                        inputData.append([dateFormatter.string(from: wd.date),
+                                          timeFormatter.string(from: wd.startTime),
+                                          timeFormatter.string(from: wd.endTime),
+                                          String(wd.hours),
+                                          wd.tasks,
+                                          "",
+                                          "",
+                                          "",
+                                          String(wd.expenses.map{$0.amount}.reduce(0, +)),
+                                          wd.notes])
+                    } else {
+                        var first = true
+                        for e in wd.expenses {
+                            if first {
+                                inputData.append([dateFormatter.string(from: wd.date),
+                                                  timeFormatter.string(from: wd.startTime),
+                                                  timeFormatter.string(from: wd.endTime),
+                                                  String(wd.hours),
+                                                  wd.tasks,
+                                                  e.name,
+                                                  e.description,
+                                                  String(e.amount),
+                                                  String(wd.expenses.map{$0.amount}.reduce(0, +)),
+                                                  wd.notes])
+                                first = false
+                            } else {
+                                inputData.append(["",
+                                                  "",
+                                                  "",
+                                                  "",
+                                                  "",
+                                                  e.name,
+                                                  e.description,
+                                                  String(e.amount),
+                                                  "",
+                                                  ""])
+                            }
+                        }
+                    }
+                    
                 }
             }
             do {
@@ -53,12 +84,14 @@ struct CSVExportView: View {
             showingExporter = true
             
         } label: {
-            HStack {
-                Text("Export Table")
-                    .fontWeight(.bold)
-                Image(systemName: "arrow.up.square")
-                    .fontWeight(.bold)
-            }
+            Label("Export Table", systemImage: "arrow.up.square")
+                .fontWeight(.bold)
+//            HStack {
+//                Text("Export Table")
+//                    .fontWeight(.bold)
+//                Image(systemName: "arrow.up.square")
+//                    .fontWeight(.bold)
+//            }
         }.fileExporter(isPresented: $showingExporter, document: document, contentType: .plainText, defaultFilename: "\(job.title).csv") {
             result in
             switch result {

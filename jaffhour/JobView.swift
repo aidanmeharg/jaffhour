@@ -56,11 +56,12 @@ struct JobView: View {
                         showAddSheet.toggle()
                     } label: {
                         Label("Add Workday", systemImage: "plus.circle")
+                            .fontWeight(.bold)
                     }
                 }
                 Section {
                     VStack {
-                        Text("Export Workdays in Date Range:")
+                        Text("Create Table for Workdays:")
                         HStack {
                             Text("Start:")
                             DatePicker("", selection: $startExpDate, displayedComponents: .date)
