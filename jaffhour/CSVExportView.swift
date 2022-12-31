@@ -11,7 +11,6 @@ import CodableCSV
 
 struct CSVExportView: View {
     
-    // this view should have a list of workdays passed into it
     
     let job: Job
     let start: Date
@@ -31,7 +30,7 @@ struct CSVExportView: View {
             timeFormatter.dateStyle = .none
             timeFormatter.timeStyle = .short
             for wd in job.workdays.reversed() {
-                if wd.date >= start && wd.date <= end {
+                if wd.date >= Calendar.current.date(byAdding: .day, value: -1, to: start)! && wd.date <= end {
                     if wd.expenses.count == 0 {
                         inputData.append([dateFormatter.string(from: wd.date),
                                           timeFormatter.string(from: wd.startTime),

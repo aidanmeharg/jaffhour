@@ -65,10 +65,12 @@ struct JobView: View {
                         HStack {
                             Text("Start:")
                             DatePicker("", selection: $startExpDate, displayedComponents: .date)
+                                //.buttonStyle(.borderless)
                         }
                         HStack {
                             Text("End:")
                             DatePicker("", selection: $endExpDate, displayedComponents: .date)
+                                //.buttonStyle(.borderless)
                         }
                     }
                 }

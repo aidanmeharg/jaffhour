@@ -14,10 +14,11 @@ struct CalendarCell: View {
     let startingSpaces: Int
     let daysInMonth: Int
     let daysInPrevMonth: Int
-    // ideally each CalendarCell should represent their respective date
     @State var tapped = false
     @Binding var showDaySheet: Bool
     @Binding var selectedDay: Date
+    
+    let jobs: [Job]
     
     
     var body: some View {
@@ -53,9 +54,33 @@ struct CalendarCell: View {
         let twoDays = Color(red: 68/255, green: 196/255, blue: 106/255)
         let threePlus = Color(red: 51/255, green: 161/255, blue: 83/255)
         let start = startingSpaces == 0 ? startingSpaces + 7: startingSpaces
-        let isToday = CalendarHelper().isToday(date: Calendar.current.date(byAdding: .day, value: count - start - 1, to: CalendarHelper().firstOfMonth(date: dateHolder.date))!)
-        // TODO: connect this view with viewmodel and get # of jobs with a workday on this day
-        return isToday ? Color.green : oneDay
+        let thisDate = Calendar.current.date(byAdding: .day, value: count - start - 1, to: CalendarHelper().firstOfMonth(date: dateHolder.date))!
+        let isToday = CalendarHelper().isToday(date: thisDate)
+        var nwd = 0
+        for job in jobs {
+            for wd in job.workdays.reversed() { // use reversed because much more likely that calendar will be displaying most recent workdays
+                // should definitely still make this more efficient (the little date bubbles themselves should not have to sift through jobs/workdays)
+                if wd.date < Calendar.current.date(byAdding: .day, value: -7, to: thisDate)! {
+                    break
+                }
+                if Calendar.current.isDate(wd.date, equalTo: thisDate, toGranularity: .day) {
+                    nwd += 1
+                    break
+                }
+            }
+        }
+        var col = Color.clear
+        switch nwd {
+        case 0:
+            col = Color.clear
+        case 1:
+            col = oneDay
+        case 2:
+            col = twoDays
+        default:
+            col = threePlus
+        }
+        return isToday ? Color.red : col
     }
     
     
@@ -75,7 +100,7 @@ struct CalendarCell: View {
 
 struct CalendarCell_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarCell(count: 1, startingSpaces: 1, daysInMonth: 1, daysInPrevMonth: 1, showDaySheet: .constant(false), selectedDay: .constant(Date()))
+        CalendarCell(count: 1, startingSpaces: 1, daysInMonth: 1, daysInPrevMonth: 1, showDaySheet: .constant(false), selectedDay: .constant(Date()), jobs: [])
             .environmentObject(DateHolder())
     }
 }

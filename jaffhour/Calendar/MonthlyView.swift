@@ -65,7 +65,7 @@ struct MonthlyView: View {
                 HStack(spacing: 1) {
                     ForEach(0..<7) { column in
                         let count = column + (row * 7)
-                        CalendarCell(count: count, startingSpaces: startingSpaces, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth, showDaySheet: $showDaySheet, selectedDay: $selectedDay)
+                        CalendarCell(count: count, startingSpaces: startingSpaces, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth, showDaySheet: $showDaySheet, selectedDay: $selectedDay, jobs: model.jobs)
                             .environmentObject(dateHolder)
                             
                     }
