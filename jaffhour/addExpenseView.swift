@@ -31,7 +31,7 @@ struct addExpenseView: View {
                 if newPayee {
                     
                     HStack {
-                        TextField("Payee Name", text: $selectedPayee, axis: .vertical)
+                        TextEditor(text: $selectedPayee)
                             .padding(.all)
                         Button {
                             if (selectedPayee != "") { 

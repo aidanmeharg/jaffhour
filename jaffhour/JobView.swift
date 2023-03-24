@@ -56,7 +56,7 @@ struct JobView: View {
                         showAddSheet.toggle()
                     } label: {
                         Label("Add Workday", systemImage: "plus.circle")
-                            .fontWeight(.bold)
+                            .font(.title.bold())
                     }
                 }
                 Section {

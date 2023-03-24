@@ -84,7 +84,7 @@ struct CSVExportView: View {
             
         } label: {
             Label("Export Table", systemImage: "arrow.up.square")
-                .fontWeight(.bold)
+                .font(.title.bold())
 //            HStack {
 //                Text("Export Table")
 //                    .fontWeight(.bold)

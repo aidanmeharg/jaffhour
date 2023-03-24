@@ -22,15 +22,34 @@ class ViewModel: ObservableObject {
     
     @Published var jobs: [Job]
     
+    let dayFormatter = DateFormatter()
+    
+    let monthFormatter = DateFormatter()
+    
+    let yearFormatter = DateFormatter()
+    
+    let dayOfWeekFormatter = DateFormatter()
+    
+    let mdyFormatter = DateFormatter()
+    
+    // TODO: use one dateFormatter and call functions
+    //       also move all this date formatting stuff into a class in the calendar folder
+    
     var globalpayees = GlobalPayees.sharedInstance
     
     
     init() {
         do {
+            mdyFormatter.dateFormat = "MMM-dd-yyyy"
+            dayOfWeekFormatter.dateFormat = "EEEE"
+            yearFormatter.dateFormat = "YYYY"
+            dayFormatter.dateFormat = "d"
+            monthFormatter.dateFormat = "MMMM"
             let job_data = try Data(contentsOf: savePathJobs)
             let payee_data = try Data(contentsOf: savePathPayees)
             jobs = try JSONDecoder().decode([Job].self, from: job_data)
             globalpayees.payees = try JSONDecoder().decode([String].self, from: payee_data)
+            globalpayees.payees.sort() // TODO: absolutely no reason to sort these on startup wtf
         } catch {
             // loading failed: start with new data
             jobs = []

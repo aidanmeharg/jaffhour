@@ -17,6 +17,12 @@
 		C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F128F0B54100DA25B1 /* GlobalPayees.swift */; };
 		C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F828F2068200DA25B1 /* FileManagerExtension.swift */; };
 		C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */; };
+		C657A5D329C974DF002C39DC /* DateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657A5D229C974DF002C39DC /* DateIcon.swift */; };
+		C657A5D529CA23D1002C39DC /* DateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657A5D429CA23D1002C39DC /* DateDetailView.swift */; };
+		C657A5D829CCE1C2002C39DC /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657A5D729CCE1C1002C39DC /* MonthView.swift */; };
+		C657A5DA29CCE322002C39DC /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657A5D929CCE322002C39DC /* DateCell.swift */; };
+		C657A5DC29CD2E0D002C39DC /* DayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657A5DB29CD2E0D002C39DC /* DayDetailView.swift */; };
+		C657A5DE29CD53C0002C39DC /* TransitionPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657A5DD29CD53C0002C39DC /* TransitionPractice.swift */; };
 		C659B33029158E6C00A4C139 /* WorkdaysTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */; };
 		C659B3322918C72400A4C139 /* EditableWorkDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659B3312918C72400A4C139 /* EditableWorkDayView.swift */; };
 		C673826D295F913300E1594A /* CSVExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673826C295F913300E1594A /* CSVExportView.swift */; };
@@ -52,6 +58,12 @@
 		C63123F128F0B54100DA25B1 /* GlobalPayees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPayees.swift; sourceTree = "<group>"; };
 		C63123F828F2068200DA25B1 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTcodablestructs.swift; sourceTree = "<group>"; };
+		C657A5D229C974DF002C39DC /* DateIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIcon.swift; sourceTree = "<group>"; };
+		C657A5D429CA23D1002C39DC /* DateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailView.swift; sourceTree = "<group>"; };
+		C657A5D729CCE1C1002C39DC /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		C657A5D929CCE322002C39DC /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		C657A5DB29CD2E0D002C39DC /* DayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailView.swift; sourceTree = "<group>"; };
+		C657A5DD29CD53C0002C39DC /* TransitionPractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionPractice.swift; sourceTree = "<group>"; };
 		C659B32F29158E6C00A4C139 /* WorkdaysTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkdaysTable.swift; sourceTree = "<group>"; };
 		C659B3312918C72400A4C139 /* EditableWorkDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableWorkDayView.swift; sourceTree = "<group>"; };
 		C673826C295F913300E1594A /* CSVExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExportView.swift; sourceTree = "<group>"; };
@@ -101,7 +113,6 @@
 				329094FAFD57F33429E3E01C /* Pods-jaffhour.debug.xcconfig */,
 				5F8D19C4A8DD89F7F127772D /* Pods-jaffhour.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -114,6 +125,9 @@
 				C616587B29022F2200D8E3CB /* MonthlyView.swift */,
 				C616587D290248D900D8E3CB /* CalendarCell.swift */,
 				C616587F290250E500D8E3CB /* MonthStruct.swift */,
+				C657A5D729CCE1C1002C39DC /* MonthView.swift */,
+				C657A5D929CCE322002C39DC /* DateCell.swift */,
+				C657A5DB29CD2E0D002C39DC /* DayDetailView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -121,6 +135,7 @@
 		C63123F428F1F1C200DA25B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C657A5D129C974A1002C39DC /* Practice */,
 				C61658742902227F00D8E3CB /* Calendar */,
 				C63123F628F1F24800DA25B1 /* HomePage */,
 				C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */,
@@ -164,6 +179,16 @@
 				C63123F828F2068200DA25B1 /* FileManagerExtension.swift */,
 			);
 			path = "Data Persistence";
+			sourceTree = "<group>";
+		};
+		C657A5D129C974A1002C39DC /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				C657A5D229C974DF002C39DC /* DateIcon.swift */,
+				C657A5D429CA23D1002C39DC /* DateDetailView.swift */,
+				C657A5DD29CD53C0002C39DC /* TransitionPractice.swift */,
+			);
+			path = Practice;
 			sourceTree = "<group>";
 		};
 		C6AF759E28E3EE7D00EFB374 = {
@@ -322,9 +347,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6DBC02B2908486F00818436 /* HomeTabView.swift in Sources */,
+				C657A5D829CCE1C2002C39DC /* MonthView.swift in Sources */,
 				C6E2206028E75E4100A2DB55 /* JobView.swift in Sources */,
 				C673826D295F913300E1594A /* CSVExportView.swift in Sources */,
 				C659B33029158E6C00A4C139 /* WorkdaysTable.swift in Sources */,
+				C657A5D529CA23D1002C39DC /* DateDetailView.swift in Sources */,
 				C616587E290248D900D8E3CB /* CalendarCell.swift in Sources */,
 				C6E2205428E6492000A2DB55 /* workday.swift in Sources */,
 				C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */,
@@ -337,12 +364,16 @@
 				C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */,
 				C6C3EFFC292F409F00E55079 /* EditPayeesView.swift in Sources */,
 				C616587A290224A100D8E3CB /* CalendarHelper.swift in Sources */,
+				C657A5DE29CD53C0002C39DC /* TransitionPractice.swift in Sources */,
 				C6E2206828E8DF8100A2DB55 /* WorkDaysListView.swift in Sources */,
 				C6E2205A28E65E5800A2DB55 /* ViewModel.swift in Sources */,
 				C61658782902231B00D8E3CB /* MonthScrollerView.swift in Sources */,
 				C6165876290222A500D8E3CB /* DateHolder.swift in Sources */,
+				C657A5D329C974DF002C39DC /* DateIcon.swift in Sources */,
+				C657A5DA29CCE322002C39DC /* DateCell.swift in Sources */,
 				C6165880290250E500D8E3CB /* MonthStruct.swift in Sources */,
 				C616587C29022F2200D8E3CB /* MonthlyView.swift in Sources */,
+				C657A5DC29CD2E0D002C39DC /* DayDetailView.swift in Sources */,
 				C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */,
 				C6E0D16D28EF8E4E00DCD6C3 /* WorkDayDetailView.swift in Sources */,
 				C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */,
@@ -485,7 +516,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,7 +547,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

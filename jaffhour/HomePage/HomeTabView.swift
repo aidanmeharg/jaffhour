@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HomeTabView: View {
     
-    @ObservedObject var model = ViewModel()
+    @StateObject var model = ViewModel()
     
-    @State private var selectedTab = "clients"
+    @State private var selectedTab = "calendar"
     
     private let dateHolder = DateHolder()
     
@@ -19,20 +19,21 @@ struct HomeTabView: View {
         
         TabView(selection: $selectedTab) {
             
-            NavigationView {
-                ContentView(model: model)
-            }
-                .tabItem {
-                    Label("clients", systemImage: "person")
-                }
-                .tag("clients")
-            
-            MonthlyView(model: model)
+            MonthView()
+                .environmentObject(model)
                 .environmentObject(dateHolder)
                 .tabItem {
                     Label("calendar", systemImage: "calendar")
                 }
                 .tag("calendar")
+            
+            NavigationView {
+                ContentView(model: model)
+            }
+                .tabItem {
+                    Label("clients", systemImage: "person.3")
+                }
+                .tag("clients")
             
         }
         //.scrollContentBackground(.hidden)

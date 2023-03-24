@@ -13,10 +13,14 @@ struct EditPayeesView: View {
     
     @State private var selectedPayees: Set<String> = []
     
+    @State private var selectedPayee = ""
     @State private var editMode = EditMode.inactive
     
     var body: some View {
-        Text("coming soon?")
+        VStack {
+            DateIcon()
+            Text("gonna remake the app to get this to work")
+        }
     }
 }
 

@@ -25,6 +25,7 @@ final class GlobalPayees {
     
     func addPayee(payee: String) {
         payees.append(payee)
+        payees.sort()
         if (Set(payees).count == payees.count) { // not a great implementation in terms of space usage but the payee lists aren't going to be huge
             return // no duplicates
         } else {

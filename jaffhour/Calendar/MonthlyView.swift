@@ -33,8 +33,7 @@ struct MonthlyView: View {
         .padding(.horizontal)
         .sheet(isPresented: $showDaySheet) {
             WorkdaysTable(jobs: model.jobs, selectedDay: selectedDay)
-            // make this view accept a list of workdays
-            // add method to get workdays from model for selectedDay
+          
         }
         
     }

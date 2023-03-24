@@ -59,7 +59,7 @@ struct addWorkDayView: View {
                 Section {
                     Text("Tasks")
                         .font(.title)
-                    TextField("What got done?", text: $workday.tasks, axis: .vertical)
+                    TextEditor(text: $workday.tasks)
                     
                 }
                 Section {
@@ -85,7 +85,7 @@ struct addWorkDayView: View {
                 Section {
                     Text("Notes")
                         .font(.title)
-                    TextField("Additional Notes", text: $workday.notes, axis: .vertical)
+                    TextEditor(text: $workday.notes)
                     
                 }
                 Button {
