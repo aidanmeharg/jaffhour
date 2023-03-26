@@ -12,6 +12,8 @@ import CodableCSV
 struct CSVExportView: View {
     
     
+    // TODO: move all of this logic out into a class where we can call it
+    
     let job: Job
     let start: Date
     let end: Date
@@ -51,7 +53,7 @@ struct CSVExportView: View {
                                                   timeFormatter.string(from: wd.endTime),
                                                   String(wd.hours),
                                                   wd.tasks,
-                                                  e.name,
+                                                  e.payee.name,
                                                   e.description,
                                                   String(e.amount),
                                                   String(wd.expenses.map{$0.amount}.reduce(0, +)),
@@ -63,7 +65,7 @@ struct CSVExportView: View {
                                                   "",
                                                   "",
                                                   "",
-                                                  e.name,
+                                                  e.payee.name,
                                                   e.description,
                                                   String(e.amount),
                                                   "",

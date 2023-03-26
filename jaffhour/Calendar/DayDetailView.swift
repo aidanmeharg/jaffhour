@@ -15,14 +15,44 @@ struct DayDetailView: View {
     
     @Binding var showingDayDetails: Bool
     
-    var date: Date
     
+    var date: Date
+
     var body: some View {
         
         ZStack {
+            LinearGradient(colors: [.purple, .clear], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all)
+                .matchedGeometryEffect(id: "background", in: namespace)
             ScrollView {
-                dateHeader
+                
+                VStack {
+                    dateHeader
+                        .padding(.all)
+                    
+                    ForEach($model.jobs) { $job in
+                        ForEach($job.workdays) { $workday in
+                            if (Calendar.current.isDate(date, equalTo: workday.date, toGranularity: .day)) {
+                                WorkdayCard(clientName: job.title, workday: $workday)
+                                    .environmentObject(model)
+                            }
+                        }
+                    }
+
+                    Button {
+                        // add a new workday
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.body.weight(.bold))
+                            .foregroundColor(Color.green)
+                            .padding(10)
+                            .background(.black, in: RoundedRectangle(cornerRadius: 30))
+                    }
+                    .frame(width: 200, height: 100)
+                    .background(.ultraThinMaterial)
+                }
             }
+//            .scrollDismissesKeyboard(.automatic) TODO: use this for jaffs phone
             Button {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
                     showingDayDetails.toggle()
@@ -52,7 +82,7 @@ struct DayDetailView: View {
                 
                ZStack {
                    Circle()
-                       .foregroundColor(Color.green)
+                       .foregroundStyle(LinearGradient(colors: [.green, .green], startPoint: .leading, endPoint: .trailing))
                        .padding(.horizontal, 2)
                        .matchedGeometryEffect(id: "DayCircle\(model.mdyFormatter.string(from: date))", in: namespace)
                        .frame(width: 100, height: 100)

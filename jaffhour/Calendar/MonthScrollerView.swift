@@ -18,6 +18,7 @@ struct MonthScrollerView: View {
                 Image(systemName: "arrow.left")
                     .imageScale(.large)
                     .font(.title.bold())
+                    .foregroundColor(Color.black)
             }
             Text(CalendarHelper().monthYearString(date: dateHolder.date))
                 .font(.title.bold())
@@ -26,6 +27,7 @@ struct MonthScrollerView: View {
                 Image(systemName: "arrow.right")
                     .imageScale(.large)
                     .font(.title.bold())
+                    .foregroundColor(Color.black)
             }
             Spacer()
         }

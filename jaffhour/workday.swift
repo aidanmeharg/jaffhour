@@ -7,19 +7,27 @@
 
 import Foundation
 
+struct Payee: Hashable, Identifiable, Codable, Equatable {
+    
+    var id = UUID()
+    
+    var name: String
+}
+
 
 struct Expense: Hashable, Identifiable, Codable {
     
     var id = UUID()
     
-    var name: String
+    var payee: Payee
     
     var description: String
     
     var amount: Double
     
-    static let example1 = Expense(name: "A&B", description: "tool rental", amount: 112.38)
-    static let example2 = Expense(name: "District 11", description: "that good food forreal", amount: 48.77)
+    static let example1 = Expense(payee: Payee(name: "A&B"), description: "tool rental", amount: 112.38)
+    static let example2 = Expense(payee: Payee(name: "District 11"), description: "that good food forreal", amount: 48.77)
+    static let example3 = Expense(payee: Payee(name: "Home Depot"), description: "a very long description of the expense (with lots of details) use this to test out views that display expenses so that we can format correctly", amount: 420.69)
 }
 
 
@@ -60,7 +68,46 @@ struct WorkDay: Hashable, Identifiable, Codable {
         hours = endTime.timeIntervalSince(startTime) / 3600.0
     }
     
-    static let example = WorkDay(date: Date(), expenses: [Expense.example1, Expense.example2], tasks: "Worked on JaffHour", notes: "Not much to say")
+    static let example = WorkDay(date: Date(), expenses: [Expense.example1, Expense.example2, Expense.example3], tasks: "Worked on JaffHour", notes: "Not much to say")
+}
+
+extension WorkDay {
+    
+    struct Data {
+        
+        var date: Date = Date()
+        
+        var startTime: Date = Date()
+        
+        var endTime: Date = Date()
+        
+        var hours: Double = 0.0
+        
+        var tasks: String = ""
+        
+        var expenses: [Expense] = []
+        
+        var totalExpenses: Double = 0.0 // this is stupid don't use this
+        
+        var notes: String = ""
+        
+    }
+    
+    var data: Data {
+        Data(date: date, startTime: startTime, endTime: endTime, hours: hours, tasks: tasks, expenses: expenses, totalExpenses: totalExpenses, notes: notes)
+    }
+    
+    mutating func update(from data: Data) {
+        date = data.date
+        startTime = data.startTime
+        endTime = data.endTime
+        tasks = data.tasks
+        expenses = data.expenses
+        notes = data.notes
+        // recalculate hours
+        hours = data.endTime.timeIntervalSince(data.startTime) / 3600.0
+    }
+    
 }
 
 struct Job: Hashable, Identifiable, Codable {
