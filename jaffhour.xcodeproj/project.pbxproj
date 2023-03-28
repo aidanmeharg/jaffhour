@@ -43,6 +43,8 @@
 		C6E2206428E8D73F00A2DB55 /* addWorkDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */; };
 		C6E2206628E8DA5600A2DB55 /* WorkDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2206528E8DA5600A2DB55 /* WorkDayRow.swift */; };
 		C6E2206828E8DF8100A2DB55 /* WorkDaysListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */; };
+		C6ED156C29CE65F4002A0D9A /* WorkdayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED156B29CE65F4002A0D9A /* WorkdayCard.swift */; };
+		C6ED156E29D02CF0002A0D9A /* ExpenseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED156D29D02CF0002A0D9A /* ExpenseRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		C6E2206328E8D73F00A2DB55 /* addWorkDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addWorkDayView.swift; sourceTree = "<group>"; };
 		C6E2206528E8DA5600A2DB55 /* WorkDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDayRow.swift; sourceTree = "<group>"; };
 		C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDaysListView.swift; sourceTree = "<group>"; };
+		C6ED156B29CE65F4002A0D9A /* WorkdayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkdayCard.swift; sourceTree = "<group>"; };
+		C6ED156D29D02CF0002A0D9A /* ExpenseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 		C63123F428F1F1C200DA25B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C6ED156A29CE65AC002A0D9A /* WorkDayEdits */,
 				C657A5D129C974A1002C39DC /* Practice */,
 				C61658742902227F00D8E3CB /* Calendar */,
 				C63123F628F1F24800DA25B1 /* HomePage */,
@@ -230,6 +235,15 @@
 				C6AF75B128E3EE8100EFB374 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C6ED156A29CE65AC002A0D9A /* WorkDayEdits */ = {
+			isa = PBXGroup;
+			children = (
+				C6ED156B29CE65F4002A0D9A /* WorkdayCard.swift */,
+				C6ED156D29D02CF0002A0D9A /* ExpenseRow.swift */,
+			);
+			path = WorkDayEdits;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,12 +367,14 @@
 				C659B33029158E6C00A4C139 /* WorkdaysTable.swift in Sources */,
 				C657A5D529CA23D1002C39DC /* DateDetailView.swift in Sources */,
 				C616587E290248D900D8E3CB /* CalendarCell.swift in Sources */,
+				C6ED156E29D02CF0002A0D9A /* ExpenseRow.swift in Sources */,
 				C6E2205428E6492000A2DB55 /* workday.swift in Sources */,
 				C6AF75AD28E3EE7E00EFB374 /* ContentView.swift in Sources */,
 				C6E0D16928EF5F9200DCD6C3 /* addExpenseView.swift in Sources */,
 				C659B3322918C72400A4C139 /* EditableWorkDayView.swift in Sources */,
 				C6E2205E28E6983F00A2DB55 /* JobRow.swift in Sources */,
 				C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */,
+				C6ED156C29CE65F4002A0D9A /* WorkdayCard.swift in Sources */,
 				C6E2206628E8DA5600A2DB55 /* WorkDayRow.swift in Sources */,
 				C6E2206428E8D73F00A2DB55 /* addWorkDayView.swift in Sources */,
 				C6E0D16728EF529000DCD6C3 /* ExpenseRowView.swift in Sources */,

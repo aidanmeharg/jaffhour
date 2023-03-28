@@ -61,7 +61,7 @@ struct EditableWorkDayView: View {
             }
             Section {
                 Button {
-                    editableWorkday.expenses.append(Expense(name: "", description: "", amount: 0))
+                    editableWorkday.expenses.append(Expense(payee: Payee(name: ""), description: "", amount: 0))
                 } label: {
                     Label("Add Expense", systemImage: "plus")
                 }

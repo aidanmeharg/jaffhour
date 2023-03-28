@@ -37,7 +37,7 @@ struct WorkDayDetailView: View {
             VStack {
                 ForEach(workday.expenses, id: \.id) { expense in
                     HStack {
-                        Text("\(expense.name)")
+                        Text("\(expense.payee.name)")
                             .padding(.horizontal)
                         Spacer()
                         Text("\(expense.description)")

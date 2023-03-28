@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 
 class ViewModel: ObservableObject {
@@ -14,6 +15,7 @@ class ViewModel: ObservableObject {
     // URL for saving/loading JSON data
     private let savePathJobs = FileManager.documentsDirectory.appendingPathComponent("SavedJobs")
     private let savePathPayees = FileManager.documentsDirectory.appendingPathComponent("SavedPayees")
+    private let savePathPayeesStruct = FileManager.documentsDirectory.appendingPathComponent("SavedPayeesStruct")
     
     // An active Combine chain that watches for changes to the `jobs` array, and calls save()
     // 5 seconds after a change has happened.
@@ -21,6 +23,8 @@ class ViewModel: ObservableObject {
     private var saveSubscription: AnyCancellable?
     
     @Published var jobs: [Job]
+    
+    @Published var payees: [Payee]
     
     let dayFormatter = DateFormatter()
     
@@ -31,6 +35,8 @@ class ViewModel: ObservableObject {
     let dayOfWeekFormatter = DateFormatter()
     
     let mdyFormatter = DateFormatter()
+    
+    let timeFormatter = DateFormatter()
     
     // TODO: use one dateFormatter and call functions
     //       also move all this date formatting stuff into a class in the calendar folder
@@ -45,14 +51,24 @@ class ViewModel: ObservableObject {
             yearFormatter.dateFormat = "YYYY"
             dayFormatter.dateFormat = "d"
             monthFormatter.dateFormat = "MMMM"
+            timeFormatter.dateStyle = .none
+            timeFormatter.timeStyle = .short
             let job_data = try Data(contentsOf: savePathJobs)
             let payee_data = try Data(contentsOf: savePathPayees)
+//            let payee_struct_data = try Data(contentsOf: savePathPayeesStruct)
             jobs = try JSONDecoder().decode([Job].self, from: job_data)
+//            payees = try JSONDecoder().decode([Payee].self, from: payee_struct_data)
             globalpayees.payees = try JSONDecoder().decode([String].self, from: payee_data)
             globalpayees.payees.sort() // TODO: absolutely no reason to sort these on startup wtf
+            // TODO: after jaff has updated, get rid of globalpayees entirely
+            payees = []
+            for pname in globalpayees.payees {
+                payees.append(Payee(name: pname))
+            }
         } catch {
             // loading failed: start with new data
             jobs = []
+            payees = []
             globalpayees.payees = []
         }
         // sort jobs in case of previous changes made 
@@ -64,7 +80,7 @@ class ViewModel: ObservableObject {
         
         // Wait 5 seconds after `jobs` has changed before calling `save()`, to
         // avoid repeatedly calling it for every tiny change.
-        saveSubscription = $jobs // TODO: this won't check for changes to globalPayees, should probably put payees in here
+        saveSubscription = $jobs // TODO: this won't check for changes to globalPayees, payee won't save unless they are added in an expense
             .debounce(for: 5, scheduler: RunLoop.main)
             .sink { [weak self] _ in
                 self?.save()
@@ -77,8 +93,10 @@ class ViewModel: ObservableObject {
         do {
             let job_data = try JSONEncoder().encode(jobs)
             try job_data.write(to: savePathJobs, options: [.atomic, .completeFileProtection])
-            let payee_data = try JSONEncoder().encode(globalpayees.payees)
-            try payee_data.write(to: savePathPayees, options: [.atomic, .completeFileProtection])
+//            let payee_data = try JSONEncoder().encode(globalpayees.payees)
+//            try payee_data.write(to: savePathPayees, options: [.atomic, .completeFileProtection])
+            let payee_data = try JSONEncoder().encode(payees)
+            try payee_data.write(to: savePathPayeesStruct, options: [.atomic, .completeFileProtection])
         } catch {
             print("Unable to save data")
         }
@@ -90,6 +108,7 @@ class ViewModel: ObservableObject {
         newJob.updateTotalHours()
         
     }
+
     
     func move(from source: IndexSet, to destination: Int) {
         jobs.move(fromOffsets: source, toOffset: destination)

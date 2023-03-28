@@ -24,14 +24,19 @@ struct MonthView: View {
         
         ZStack {
             if (!showingDayDetails) {
-                VStack {
-                    MonthScrollerView()
-                        .environmentObject(dateHolder)
-                        .padding(.vertical)
-                    
-                    weekdayStack
-                    
-                    calGrid
+                ZStack {
+                    LinearGradient(colors: [.clear, .clear], startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .edgesIgnoringSafeArea(.all)
+                        .matchedGeometryEffect(id: "background", in: namespace)
+                    VStack {
+                        MonthScrollerView()
+                            .environmentObject(dateHolder)
+                            .padding(.vertical)
+                        
+                        weekdayStack
+                        
+                        calGrid
+                    }
                     
                 }
             } else {
