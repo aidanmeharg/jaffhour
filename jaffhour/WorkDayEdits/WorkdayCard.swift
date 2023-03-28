@@ -84,7 +84,7 @@ struct WorkdayCard: View {
                             ForEach(workday.expenses, id: \.id) { expense in
                                 VStack(alignment: .leading) {
                                     HStack {
-                                        Text(expense.payee.name)
+                                        Text(expense.name)
                                             .bold()
                                         Text("-")
                                             .bold()

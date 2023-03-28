@@ -52,7 +52,7 @@ struct DayDetailView: View {
                     .background(.ultraThinMaterial)
                 }
             }
-//            .scrollDismissesKeyboard(.automatic) TODO: use this for jaffs phone
+            .scrollDismissesKeyboard(.automatic)
             Button {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
                     showingDayDetails.toggle()

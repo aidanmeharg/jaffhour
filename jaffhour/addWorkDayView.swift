@@ -9,6 +9,8 @@ import SwiftUI
 
 struct addWorkDayView: View {
     
+    @EnvironmentObject var model: ViewModel
+    
     @Environment(\.dismiss) private var dismiss
     
     @Binding var isPresented: Bool
@@ -68,6 +70,8 @@ struct addWorkDayView: View {
                     List {
                         ForEach($expenses, id: \.id) { $expense in
                             addExpenseView(expense: $expense)
+                                .environmentObject(model)
+                                
                         }
                         .onDelete(perform: removeRows)
                     }
@@ -76,7 +80,7 @@ struct addWorkDayView: View {
                 }
                 Section {
                     Button {
-                        expenses.append(Expense(payee: Payee(name: ""), description: "", amount: 0))
+                        expenses.append(Expense(name: "", description: "", amount: 0))
                     } label: {
                         Label("Add Expense", systemImage: "plus")
                     }
@@ -125,6 +129,7 @@ struct addWorkDayView: View {
     struct addWorkDayView_Previews: PreviewProvider {
         static var previews: some View {
             addWorkDayView(isPresented: .constant(true), job: .constant(Job.example))
+                .environmentObject(ViewModel())
         }
     }
 

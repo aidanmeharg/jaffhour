@@ -9,12 +9,15 @@ import SwiftUI
 
 struct JobRow: View {
     
+    @EnvironmentObject var model: ViewModel
+    
     @Binding var job: Job
     
     var body: some View {
         
         NavigationLink {
             JobView(job: $job)
+                .environmentObject(model)
         } label: {
             Label(job.title, systemImage: "folder.circle")
         }
@@ -27,6 +30,7 @@ struct JobRow_Previews: PreviewProvider {
     
     static var previews: some View {
         JobRow(job: .constant(Job.example))
+            .environmentObject(ViewModel())
     }
 }
 

@@ -12,8 +12,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var model: ViewModel // moved the viewmodel out to HomeTabView
-                                            // for calendar to access workdays
+    @EnvironmentObject var model: ViewModel
     
     @State private var selectedJobs:  Set<Job> = []
     
@@ -23,8 +22,11 @@ struct ContentView: View {
     
         VStack {
             List(selection: $selectedJobs) {
-                ForEach($model.jobs, content: JobRow.init)
-                    .onMove(perform: model.move)
+                ForEach($model.jobs) { $job in
+                    JobRow(job: $job)
+                        .environmentObject(model)
+//                        .onMove(perform: model.move)
+                }
                 
                 Spacer()
                 Text("Edit Payees:")
@@ -81,7 +83,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ContentView(model: ViewModel())
+            ContentView()
+                .environmentObject(ViewModel())
         }
     }
 }

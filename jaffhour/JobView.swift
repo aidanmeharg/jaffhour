@@ -9,11 +9,14 @@ import SwiftUI
 
 struct JobView: View {
     
+    @EnvironmentObject var model: ViewModel
+    
     @Binding var job: Job
     
     @State private var editMode = EditMode.inactive
     
     @State private var startExpDate = Date()
+    
     @State private var endExpDate = Date()
     
     @State var showAddSheet = false
@@ -47,6 +50,7 @@ struct JobView: View {
                 Section {
                     NavigationLink {
                         WorkDaysListView(job: $job)
+                            .environmentObject(model)
                     } label: {
                         Label("Work Days", systemImage: "sun.max")
                     }
@@ -89,6 +93,7 @@ struct JobView: View {
             .navigationTitle(job.title)
             .sheet(isPresented: $showAddSheet) {
                 addWorkDayView(isPresented: $showAddSheet, job: $job)
+                    .environmentObject(model)
             }
     }
     
@@ -96,6 +101,7 @@ struct JobView: View {
         static var previews: some View {
             NavigationView {
                 JobView(job: .constant(Job.example))
+                    .environmentObject(ViewModel())
             }
         }
     }

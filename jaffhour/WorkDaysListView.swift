@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WorkDaysListView: View {
     
+    @EnvironmentObject var model: ViewModel
+    
     @Binding var job: Job
     
     @State private var selectedDays:  Set<WorkDay> = []
@@ -19,6 +21,7 @@ struct WorkDaysListView: View {
         List(selection: $selectedDays) {
             ForEach($job.workdays) { workday in
                 WorkDayRow(workday: workday, job: $job)
+                    .environmentObject(model)
             }
         }
         .toolbar {
@@ -48,5 +51,6 @@ struct WorkDaysListView: View {
 struct WorkDaysListView_Previews: PreviewProvider {
     static var previews: some View {
         WorkDaysListView(job: .constant(Job.example))
+            .environmentObject(ViewModel())
     }
 }

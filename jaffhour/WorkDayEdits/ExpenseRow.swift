@@ -22,15 +22,15 @@ struct ExpenseRow: View {
                     .bold()
                     .padding(.leading)
                 Menu {
-                    Picker(selection: $expense.payee.name,
+                    Picker(selection: $expense.name,
                            label: EmptyView(),
                            content: {
-                        ForEach(model.payees) { payee in
-                            Text(payee.name).tag(payee.name)
+                        ForEach(model.payees, id: \.self) { payee in
+                            Text(payee) // .tag(payee)
                         }
                     }).pickerStyle(.automatic)
                 } label: {
-                    Text(expense.payee.name)
+                    Text(expense.name)
                         .padding(.vertical, 10)
                         .padding(.horizontal, 10)
                         .background(.green)

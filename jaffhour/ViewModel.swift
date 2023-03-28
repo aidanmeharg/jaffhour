@@ -15,7 +15,7 @@ class ViewModel: ObservableObject {
     // URL for saving/loading JSON data
     private let savePathJobs = FileManager.documentsDirectory.appendingPathComponent("SavedJobs")
     private let savePathPayees = FileManager.documentsDirectory.appendingPathComponent("SavedPayees")
-    private let savePathPayeesStruct = FileManager.documentsDirectory.appendingPathComponent("SavedPayeesStruct")
+//    private let savePathPayeesStruct = FileManager.documentsDirectory.appendingPathComponent("SavedPayeesStruct")
     
     // An active Combine chain that watches for changes to the `jobs` array, and calls save()
     // 5 seconds after a change has happened.
@@ -24,7 +24,7 @@ class ViewModel: ObservableObject {
     
     @Published var jobs: [Job]
     
-    @Published var payees: [Payee]
+    @Published var payees: [String]
     
     let dayFormatter = DateFormatter()
     
@@ -59,11 +59,11 @@ class ViewModel: ObservableObject {
             jobs = try JSONDecoder().decode([Job].self, from: job_data)
 //            payees = try JSONDecoder().decode([Payee].self, from: payee_struct_data)
             globalpayees.payees = try JSONDecoder().decode([String].self, from: payee_data)
-            globalpayees.payees.sort() // TODO: absolutely no reason to sort these on startup wtf
+            globalpayees.payees.sort() // TODO: absolutely no reason to sort these on startup
             // TODO: after jaff has updated, get rid of globalpayees entirely
             payees = []
             for pname in globalpayees.payees {
-                payees.append(Payee(name: pname))
+                payees.append(pname)
             }
         } catch {
             // loading failed: start with new data
@@ -93,10 +93,8 @@ class ViewModel: ObservableObject {
         do {
             let job_data = try JSONEncoder().encode(jobs)
             try job_data.write(to: savePathJobs, options: [.atomic, .completeFileProtection])
-//            let payee_data = try JSONEncoder().encode(globalpayees.payees)
-//            try payee_data.write(to: savePathPayees, options: [.atomic, .completeFileProtection])
             let payee_data = try JSONEncoder().encode(payees)
-            try payee_data.write(to: savePathPayeesStruct, options: [.atomic, .completeFileProtection])
+            try payee_data.write(to: savePathPayees, options: [.atomic, .completeFileProtection])
         } catch {
             print("Unable to save data")
         }

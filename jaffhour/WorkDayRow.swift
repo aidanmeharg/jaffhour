@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WorkDayRow: View {
     
+    @EnvironmentObject var model: ViewModel
+    
     @Binding var workday: WorkDay
     
     @Binding var job: Job
@@ -24,6 +26,7 @@ struct WorkDayRow: View {
     var body: some View {
         NavigationLink {
             EditableWorkDayView(editableWorkday: workday, workday: $workday, job: $job)
+                .environmentObject(model)
         } label: {
             Label("\(dateformatter.string(from: workday.date)) \(String(format: "%.1f", round(workday.hours * 100) / 100.0)) hours", systemImage: "calendar")
         }
@@ -34,5 +37,6 @@ struct WorkDayRow: View {
 struct WorkDayRow_Previews: PreviewProvider {
     static var previews: some View {
         WorkDayRow(workday: .constant(WorkDay.example), job: .constant(Job.example))
+            .environmentObject(ViewModel())
     }
 }

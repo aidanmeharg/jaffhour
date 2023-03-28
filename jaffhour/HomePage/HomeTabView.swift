@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeTabView: View {
     
+    // TODO: move environmentObject(model) into contentview + children too
+    
     @StateObject var model = ViewModel()
     
     @State private var selectedTab = "calendar"
@@ -28,7 +30,8 @@ struct HomeTabView: View {
                 .tag("calendar")
             
             NavigationView {
-                ContentView(model: model)
+                ContentView()
+                    .environmentObject(model)
             }
                 .tabItem {
                     Label("clients", systemImage: "person.3")

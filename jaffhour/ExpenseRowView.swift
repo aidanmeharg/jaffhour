@@ -12,7 +12,7 @@ struct ExpenseRowView: View {
     @Binding var expense: Expense
     
     var body: some View {
-        Text("\(expense.payee.name) : $\(String(format: "%.2f", round(expense.amount * 100) / 100.0))")
+        Text("\(expense.name) : $\(String(format: "%.2f", round(expense.amount * 100) / 100.0))")
     }
 }
 

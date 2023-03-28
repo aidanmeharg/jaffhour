@@ -7,27 +7,27 @@
 
 import Foundation
 
-struct Payee: Hashable, Identifiable, Codable, Equatable {
-    
-    var id = UUID()
-    
-    var name: String
-}
+//struct Payee: Hashable, Identifiable, Codable, Equatable { overkill
+//
+//    var id = UUID()
+//
+//    var name: String
+//}
 
 
 struct Expense: Hashable, Identifiable, Codable {
     
     var id = UUID()
     
-    var payee: Payee
+    var name: String
     
     var description: String
     
     var amount: Double
     
-    static let example1 = Expense(payee: Payee(name: "A&B"), description: "tool rental", amount: 112.38)
-    static let example2 = Expense(payee: Payee(name: "District 11"), description: "that good food forreal", amount: 48.77)
-    static let example3 = Expense(payee: Payee(name: "Home Depot"), description: "a very long description of the expense (with lots of details) use this to test out views that display expenses so that we can format correctly", amount: 420.69)
+    static let example1 = Expense(name: "A&B", description: "tool rental", amount: 112.38)
+    static let example2 = Expense(name: "District 11", description: "that good food forreal", amount: 48.77)
+    static let example3 = Expense(name: "Home Depot", description: "a very long description of the expense (with lots of details) use this to test out views that display expenses so that we can format correctly", amount: 420.69)
 }
 
 
