@@ -135,9 +135,25 @@ struct Job: Hashable, Identifiable, Codable {
     
     var startDate = Date()
     
-    var totalhours: Double
+    var totalhours: Double // NOT IN USE
     
-    var totalExpenses: Double
+    var totalExpenses: Double // NOT IN USE
+    
+    func getHoursForDateRange(start: Date, end: Date) -> Double {
+        var total = 0.0
+        for workday in workdays {
+            if (start <= workday.startTime && end >= workday.endTime) { // TODO: debug to see why this is messing up
+                total += workday.hours
+            }
+        }
+        return total
+    }
+    
+    mutating func sortWorkdays() {
+        workdays.sort {
+            $0.date > $1.date
+        }
+    }
     
     // totalhours should always reflect data accurately but avoid recomputation
     mutating func updateTotalHours() {

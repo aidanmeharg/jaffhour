@@ -19,7 +19,12 @@ struct JobRow: View {
             JobView(job: $job)
                 .environmentObject(model)
         } label: {
-            Label(job.title, systemImage: "folder.circle")
+            HStack {
+                Image(systemName: "folder.circle")
+                    .foregroundColor(.yellow)
+                Text(job.title)
+                    .foregroundColor(JaffPalette.mintForeground)
+            }
         }
         //.listRowBackground(Color.gray)
         .tag(job)

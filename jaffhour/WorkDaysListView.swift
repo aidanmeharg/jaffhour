@@ -23,6 +23,7 @@ struct WorkDaysListView: View {
                 WorkDayRow(workday: workday, job: $job)
                     .environmentObject(model)
             }
+            .listRowBackground(JaffPalette.midGreen)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

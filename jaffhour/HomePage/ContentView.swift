@@ -18,6 +18,7 @@ struct ContentView: View {
     
     @State private var editMode = EditMode.inactive
     
+    
     var body: some View {
     
         VStack {
@@ -25,22 +26,29 @@ struct ContentView: View {
                 ForEach($model.jobs) { $job in
                     JobRow(job: $job)
                         .environmentObject(model)
-//                        .onMove(perform: model.move)
+                        .tag(job)
+                        
                 }
+                .onMove(perform: model.move)
+                .listRowBackground(JaffPalette.midGreen)
+                .listRowSeparatorTint(JaffPalette.mintForeground)
                 
-                Spacer()
-                Text("Edit Payees:")
-                    .font(.title2.bold())
-                NavigationLink {
-                    EditPayeesView()
-                } label: {
-                    Label("", systemImage: "gearshape.fill")
+                Section(header: Text("Edit Payees")) {
+                    NavigationLink {
+                        EditPayeesView()
+                            .navigationTitle("Payees")
+                            .environmentObject(model)
+                    } label: {
+                        Label("", systemImage: "gearshape.fill")
+                    }
+                    .listRowBackground(JaffPalette.midGreen)
                 }
+                .headerProminence(.increased)
             }
             
         }
+        
         //.scrollContentBackground(.hidden)
-        //.background(Color.green)
         
         
         .navigationTitle("Clients")

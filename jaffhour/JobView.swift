@@ -19,6 +19,8 @@ struct JobView: View {
     
     @State private var endExpDate = Date()
     
+    @State private var hoursForSelectedRange: Double = 0.0
+    
     @State var showAddSheet = false
     
     private let dateformatter = DateFormatter()
@@ -36,50 +38,90 @@ struct JobView: View {
                         HStack {
                             Text("Rename: ")
                                 
-                            TextField("Job Name", text: $job.title) // this will be editable
+                            TextField("Job Name", text: $job.title)
                         }
                     }
+                    
                 }
-                Section {
-                    Label("Since: \(dateformatter.string(from: job.startDate))", systemImage: "calendar")
-                }
-                Section {
-                    Label("Total Hours: \(String(format: "%.2f", round(job.totalhours * 100) / 100.0))", systemImage: "clock")
-                        
-                }
+                
                 Section {
                     NavigationLink {
                         WorkDaysListView(job: $job)
                             .environmentObject(model)
                     } label: {
-                        Label("Work Days", systemImage: "sun.max")
+                        HStack {
+                            Image(systemName: "sun.max")
+                                .font(.title3.bold())
+                                .foregroundColor(.yellow)
+                            Text("Work Days")
+                                .foregroundColor(JaffPalette.mintForeground)
+                        }
                     }
+                    .listRowBackground(JaffPalette.midGreen)
                 }
                 Section {
                     Button {
                         showAddSheet.toggle()
                     } label: {
                         Label("Add Workday", systemImage: "plus.circle")
-                            .font(.title.bold())
+                            .font(.title3.bold())
                     }
+                    .listRowBackground(JaffPalette.midGreen)
                 }
                 Section {
                     VStack {
                         Text("Create Table for Workdays:")
+                            .foregroundColor(JaffPalette.mintForeground)
                         HStack {
+                            Spacer()
                             Text("Start:")
+                                .foregroundColor(JaffPalette.mintForeground)
+                            Spacer()
                             DatePicker("", selection: $startExpDate, displayedComponents: .date)
-                                //.buttonStyle(.borderless)
+                                .font(.title2.bold())
+                                .labelsHidden()
+                                .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(
+                                    LinearGradient(colors: [.green, .green], startPoint: .topLeading, endPoint: .bottomTrailing)))
+                            Spacer()
                         }
                         HStack {
+                            Spacer()
                             Text("End:")
+                                .foregroundColor(JaffPalette.mintForeground)
+                            Spacer()
                             DatePicker("", selection: $endExpDate, displayedComponents: .date)
-                                //.buttonStyle(.borderless)
+                                .font(.title2.bold())
+                                .labelsHidden()
+                                .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(
+                                    LinearGradient(colors: [.green, .green], startPoint: .topLeading, endPoint: .bottomTrailing)))
+                            
+                            Spacer()
                         }
                     }
+                    .listRowBackground(JaffPalette.midGreen)
+                }
+                Section {
+                    HStack {
+                        Image(systemName: "clock")
+                            .font(.title3.bold())
+                            .foregroundColor(.yellow)
+                        Text("Hours For Selected Range: \(String(format: "%.2f", hoursForSelectedRange))")
+                                    .foregroundColor(JaffPalette.mintForeground)
+                                    .onChange(of: startExpDate) { newValue in
+                                        let hours = job.getHoursForDateRange(start: startExpDate, end: endExpDate)
+                                        hoursForSelectedRange = round(hours * 100) / 100.0
+                                        }
+                                    .onChange(of: endExpDate) { newValue in
+                                        let hours = job.getHoursForDateRange(start: startExpDate, end: endExpDate)
+                                        hoursForSelectedRange = round(hours * 100) / 100.0
+                            }
+                    
+                    }
+                    .listRowBackground(JaffPalette.midGreen)
                 }
                 Section {
                     CSVExportView(job: job, start: startExpDate, end: endExpDate)
+                        .listRowBackground(JaffPalette.midGreen)
                 }
             }
             .toolbar {

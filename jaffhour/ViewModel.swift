@@ -15,7 +15,6 @@ class ViewModel: ObservableObject {
     // URL for saving/loading JSON data
     private let savePathJobs = FileManager.documentsDirectory.appendingPathComponent("SavedJobs")
     private let savePathPayees = FileManager.documentsDirectory.appendingPathComponent("SavedPayees")
-//    private let savePathPayeesStruct = FileManager.documentsDirectory.appendingPathComponent("SavedPayeesStruct")
     
     // An active Combine chain that watches for changes to the `jobs` array, and calls save()
     // 5 seconds after a change has happened.
@@ -45,21 +44,22 @@ class ViewModel: ObservableObject {
     
     
     init() {
+        mdyFormatter.dateFormat = "MMM-dd-yyyy"
+        dayOfWeekFormatter.dateFormat = "EEEE"
+        yearFormatter.dateFormat = "YYYY"
+        dayFormatter.dateFormat = "d"
+        monthFormatter.dateFormat = "MMMM"
+        timeFormatter.dateStyle = .none
+        timeFormatter.timeStyle = .short
         do {
-            mdyFormatter.dateFormat = "MMM-dd-yyyy"
-            dayOfWeekFormatter.dateFormat = "EEEE"
-            yearFormatter.dateFormat = "YYYY"
-            dayFormatter.dateFormat = "d"
-            monthFormatter.dateFormat = "MMMM"
-            timeFormatter.dateStyle = .none
-            timeFormatter.timeStyle = .short
             let job_data = try Data(contentsOf: savePathJobs)
-            let payee_data = try Data(contentsOf: savePathPayees)
-//            let payee_struct_data = try Data(contentsOf: savePathPayeesStruct)
             jobs = try JSONDecoder().decode([Job].self, from: job_data)
-//            payees = try JSONDecoder().decode([Payee].self, from: payee_struct_data)
+        } catch {
+            jobs = []
+        }
+        do {
+            let payee_data = try Data(contentsOf: savePathPayees)
             globalpayees.payees = try JSONDecoder().decode([String].self, from: payee_data)
-            globalpayees.payees.sort() // TODO: absolutely no reason to sort these on startup
             // TODO: after jaff has updated, get rid of globalpayees entirely
             payees = []
             for pname in globalpayees.payees {
@@ -67,13 +67,12 @@ class ViewModel: ObservableObject {
             }
         } catch {
             // loading failed: start with new data
-            jobs = []
             payees = []
             globalpayees.payees = []
         }
         // sort jobs in case of previous changes made 
         for var job in jobs {
-            job.workdays.sort {
+            job.workdays = job.workdays.sorted { // TODO: this is not working??
                 $0.date > $1.date
             }
         }
@@ -131,8 +130,16 @@ class ViewModel: ObservableObject {
         jobs.move(fromOffsets: source, toOffset: destination)
     }
     
+    func movePayees(from source: IndexSet, to destination: Int) {
+        payees.move(fromOffsets: source, toOffset: destination)
+    }
+    
     func delete(_ offSets: IndexSet) {
         jobs.remove(atOffsets: offSets)
+    }
+    
+    func deletePayees(_ selected: Set<String>) {
+        payees.removeAll(where: selected.contains)
     }
     
     func delete(_ selected: Set<Job>) {

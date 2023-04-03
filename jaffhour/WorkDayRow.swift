@@ -25,10 +25,18 @@ struct WorkDayRow: View {
     
     var body: some View {
         NavigationLink {
-            EditableWorkDayView(editableWorkday: workday, workday: $workday, job: $job)
-                .environmentObject(model)
+            ScrollView {
+                WorkdayCard(clientName: job.title, workday: $workday)
+                    .environmentObject(model)
+            }
+
         } label: {
-            Label("\(dateformatter.string(from: workday.date)) \(String(format: "%.1f", round(workday.hours * 100) / 100.0)) hours", systemImage: "calendar")
+            HStack {
+                Image(systemName: "calendar")
+                    .foregroundColor(.yellow)
+                Text("\(dateformatter.string(from: workday.date)) \(String(format: "%.1f", round(workday.hours * 100) / 100.0)) hours")
+                    .foregroundColor(JaffPalette.mintForeground)
+            }
         }
         .tag(workday)
     }
