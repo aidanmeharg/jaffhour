@@ -142,7 +142,7 @@ struct Job: Hashable, Identifiable, Codable {
     func getHoursForDateRange(start: Date, end: Date) -> Double {
         var total = 0.0
         for workday in workdays {
-            if (start <= workday.startTime && end >= workday.endTime) { // TODO: debug to see why this is messing up
+            if workday.date >= Calendar.current.date(byAdding: .day, value: -1, to: start)! && workday.date <= Calendar.current.date(byAdding: .day, value: 0, to: end)! { 
                 total += workday.hours
             }
         }

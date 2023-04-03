@@ -34,7 +34,9 @@ struct addWorkDayView: View {
             Spacer()
             Text("New Work Day")
                 .font(.largeTitle)
+                .foregroundColor(JaffPalette.mintForeground)
             Text("\(job.title)")
+                .foregroundColor(JaffPalette.mintForeground)
             
             
            
@@ -42,31 +44,48 @@ struct addWorkDayView: View {
                 
                 HStack {
                     Text("Date")
+                        .foregroundColor(JaffPalette.mintForeground)
                     DatePicker("", selection: $workday.date, displayedComponents: .date)
+                        .font(.title2.bold())
                         .labelsHidden()
+                        .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(
+                            LinearGradient(colors: [.green, .green], startPoint: .topLeading, endPoint: .bottomTrailing)))
                 }
+                .listRowBackground(JaffPalette.midGreen)
                 
                 HStack {
                     Text("Start")
+                        .foregroundColor(JaffPalette.mintForeground)
                     DatePicker("", selection: $workday.startTime, displayedComponents: .hourAndMinute)
                         .labelsHidden()
+                        .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(
+                            LinearGradient(colors: [.green, .green], startPoint: .topLeading, endPoint: .bottomTrailing)))
                     
                     Text("End")
+                        .foregroundColor(JaffPalette.mintForeground)
                     DatePicker("", selection: $workday.endTime, displayedComponents: .hourAndMinute)
                         .labelsHidden()
+                        .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(
+                            LinearGradient(colors: [.green, .green], startPoint: .topLeading, endPoint: .bottomTrailing)))
                 }
+                .listRowBackground(JaffPalette.midGreen)
                 
                 
                 
                 Section {
                     Text("Tasks")
                         .font(.title)
+                        .foregroundColor(JaffPalette.mintForeground)
+                        .listRowBackground(JaffPalette.midGreen)
                     TextEditor(text: $workday.tasks)
+                        .listRowBackground(Color.green)
                     
                 }
                 Section {
                     Text("Expenses")
                         .font(.title)
+                        .foregroundColor(JaffPalette.mintForeground)
+                        .listRowBackground(JaffPalette.midGreen)
                     List {
                         ForEach($expenses, id: \.id) { $expense in
                             addExpenseView(expense: $expense)
@@ -75,6 +94,7 @@ struct addWorkDayView: View {
                         }
                         .onDelete(perform: removeRows)
                     }
+                    .listRowBackground(Color.green)
                     
                     
                 }
@@ -82,14 +102,24 @@ struct addWorkDayView: View {
                     Button {
                         expenses.append(Expense(name: "", description: "", amount: 0))
                     } label: {
-                        Label("Add Expense", systemImage: "plus")
+                        HStack {
+                            Image(systemName: "plus")
+                                .foregroundColor(.yellow)
+                            Text("Add Expense")
+                                .foregroundColor(JaffPalette.mintForeground)
+                        }
+                
                     }
+                    .listRowBackground(JaffPalette.midGreen)
                     
                 }
                 Section {
                     Text("Notes")
                         .font(.title)
+                        .foregroundColor(JaffPalette.mintForeground)
+                        .listRowBackground(JaffPalette.midGreen)
                     TextEditor(text: $workday.notes)
+                        .listRowBackground(Color.green)
                     
                 }
                 Button {
@@ -108,20 +138,27 @@ struct addWorkDayView: View {
                         isPresented = false
                     }
                 } label: {
-                    Label("save this workday", systemImage: "checkmark")
+                    HStack {
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.yellow)
+                        Text("Save This Workday")
+                            .foregroundColor(JaffPalette.mintForeground)
+                    }
 
                 }
                 .buttonStyle(BorderlessButtonStyle())
+                .listRowBackground(JaffPalette.midGreen)
             }
                 .alert(isPresented: $invalidDay) {
                     Alert(title: Text("Highly Doubtful that you worked for \(String(format: "%.2f", round(workday.hours * 100) / 100.0)) hours... unless you're building a time machine?"))
                 }
                 
                 //.scrollContentBackground(.hidden)
-                //.background(Color.green)
+//                .background(Color.green)
                 
                 
             }
+        .background(JaffPalette.backgroundDark)
             
         }
     }

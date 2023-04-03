@@ -31,6 +31,7 @@ struct addExpenseView: View {
                 Toggle("New Payee", isOn: $newPayee)
                     .padding(.all)
                     .buttonStyle(BorderlessButtonStyle())
+                    .tint(.yellow)
                 if newPayee {
 
                     HStack {

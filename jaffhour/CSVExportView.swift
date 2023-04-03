@@ -32,7 +32,7 @@ struct CSVExportView: View {
             timeFormatter.dateStyle = .none
             timeFormatter.timeStyle = .short
             for wd in job.workdays.reversed() {
-                if wd.date >= Calendar.current.date(byAdding: .day, value: -1, to: start)! && wd.date <= end {
+                if wd.date >= Calendar.current.date(byAdding: .day, value: -1, to: start)! && wd.date <= Calendar.current.date(byAdding: .day, value: 0, to: end)! {
                     if wd.expenses.count == 0 {
                         inputData.append([dateFormatter.string(from: wd.date),
                                           timeFormatter.string(from: wd.startTime),
@@ -87,12 +87,7 @@ struct CSVExportView: View {
         } label: {
             Label("Export Table", systemImage: "arrow.up.square")
                 .font(.title.bold())
-//            HStack {
-//                Text("Export Table")
-//                    .fontWeight(.bold)
-//                Image(systemName: "arrow.up.square")
-//                    .fontWeight(.bold)
-//            }
+
         }.fileExporter(isPresented: $showingExporter, document: document, contentType: .plainText, defaultFilename: "\(job.title).csv") {
             result in
             switch result {
