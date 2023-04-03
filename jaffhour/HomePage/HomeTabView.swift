@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeTabView: View {
     
-    // TODO: move environmentObject(model) into contentview + children too
     
     @StateObject var model = ViewModel()
     

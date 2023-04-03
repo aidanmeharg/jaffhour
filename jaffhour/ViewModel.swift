@@ -106,6 +106,22 @@ class ViewModel: ObservableObject {
         newJob.updateTotalHours()
         
     }
+    
+    func addJob(title: String) {
+        if (!jobs.contains(where: {$0.title == title}) && title != "") {
+            jobs.append(Job(title: title, workdays: []))
+        }
+    }
+    
+    
+    func addWorkdayForClient(clientName: String, date: Date) {
+        if (clientName != "") {
+            if let index = jobs.firstIndex(where: {$0.title == clientName}) {
+                jobs[index].workdays.append(WorkDay(date: date, tasks: "", notes: ""))
+                objectWillChange.send()
+            }
+        }
+    }
 
     
     func move(from source: IndexSet, to destination: Int) {
@@ -119,4 +135,10 @@ class ViewModel: ObservableObject {
     func delete(_ selected: Set<Job>) {
            jobs.removeAll(where: selected.contains)
        }
+    
+    func addPayee(name: String) {
+        if (!payees.contains(name) && name != "") {
+            payees.append(name)
+        }
+    }
 }

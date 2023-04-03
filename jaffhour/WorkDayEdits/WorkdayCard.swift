@@ -19,10 +19,14 @@ struct WorkdayCard: View {
     
     @State private var workdayData = WorkDay.Data()
     
-    
     var clientName: String
     
     @Binding var workday: WorkDay
+    
+    // to toggle payee add textfield
+    @State var addingPayee: Bool = false // TODO: move out into editview
+    
+    @State var newPayeeName: String = ""
     
     var body: some View {
         
@@ -116,7 +120,7 @@ struct WorkdayCard: View {
                                 } label: {
                                     Image(systemName: inEditMode ? "lock.open.fill" : "lock.fill")
                                         .font(.body.weight(.bold))
-                                        .foregroundColor(Color.green)
+                                        .foregroundColor(Color.yellow)
                                         .padding(10)
                                         .background(.black, in: RoundedRectangle(cornerRadius: 30))
                                 }
@@ -201,9 +205,9 @@ struct WorkdayCard: View {
                                 .font(.body)
                                 .colorMultiply(Color.purple)
                                 .cornerRadius(10)
-                                .padding(.horizontal)
-                                .padding(.bottom)
+                                .frame(maxWidth: .infinity)
                                 .frame(height: 80)
+                                .padding(.horizontal)
                             
                         }
                         
@@ -217,6 +221,74 @@ struct WorkdayCard: View {
                         
                             ExpenseRow(workdayData: $workdayData, expense: $expense)
                                 .environmentObject(model)
+                        }
+                        if (addingPayee) {
+                            HStack {
+                                TextField("New Payee Name", text: $newPayeeName)
+                                    .accentColor(.black)
+                                    .padding()
+                                    .transition(.opacity)
+                                
+                                Button(action: {
+                                    model.addPayee(name: newPayeeName)
+                                    newPayeeName = ""
+                                    withAnimation {
+                                        addingPayee.toggle()
+                                    }
+                                }) {
+                                    Text("Confirm Add")
+                                        .foregroundColor(Color.yellow)
+                                        .padding(.vertical, 10)
+                                        .padding(.horizontal, 20)
+                                        .background(Color.black)
+                                        .cornerRadius(20)
+                                        .transition(.opacity)
+                                }
+                                .padding(.trailing)
+                            }
+                            .background(Color.orange.opacity(0.6))
+                        }
+                        
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                withAnimation {
+                                    workdayData.addNewExpense()
+                                }
+                            }) {
+                                Text("+ Expense")
+                                    .foregroundColor(Color.yellow)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 20)
+                                    .background(Color.black)
+                                    .cornerRadius(20)
+                            }
+                            Spacer()
+                            
+                            Button(action: {
+                                withAnimation {
+                                    addingPayee.toggle()
+                                }
+                            }) {
+                                if (addingPayee) {
+                                    Text("Cancel New Payee")
+                                        .foregroundColor(Color.yellow)
+                                        .padding(.vertical, 10)
+                                        .padding(.horizontal, 20)
+                                        .background(Color.black)
+                                        .cornerRadius(20)
+                                        .transition(.opacity)
+                                } else {
+                                    Text("+ Payee")
+                                        .foregroundColor(Color.yellow)
+                                        .padding(.vertical, 10)
+                                        .padding(.horizontal, 20)
+                                        .background(Color.black)
+                                        .cornerRadius(20)
+                                        .transition(.opacity)
+                                }
+                            }
+                            Spacer()
                         }
                         
                         Text("Notes")
@@ -247,7 +319,7 @@ struct WorkdayCard: View {
                             } label: {
                                 Image(systemName: inEditMode ? "lock.open.fill" : "lock.fill")
                                     .font(.body.weight(.bold))
-                                    .foregroundColor(Color.green)
+                                    .foregroundColor(Color.yellow)
                                     .padding(10)
                                     .background(.black, in: RoundedRectangle(cornerRadius: 30))
                             }
@@ -257,7 +329,7 @@ struct WorkdayCard: View {
                     }
                     
                     .background(RoundedRectangle(cornerRadius: 30).foregroundStyle(
-                        LinearGradient(colors: [.purple, .clear], startPoint: .topLeading, endPoint: .bottomTrailing)))
+                        LinearGradient(colors: [.green.opacity(0.8), .clear], startPoint: .topLeading, endPoint: .bottomTrailing)))
                     .matchedGeometryEffect(id: "background", in: detailAnimation)
                     .padding(.horizontal)
             

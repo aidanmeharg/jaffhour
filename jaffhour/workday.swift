@@ -31,6 +31,7 @@ struct Expense: Hashable, Identifiable, Codable {
 }
 
 
+
 struct WorkDay: Hashable, Identifiable, Codable {
     
     var id = UUID()
@@ -91,11 +92,23 @@ extension WorkDay {
         
         var notes: String = ""
         
+        mutating func deleteExpense(selected: Expense) {
+            let deleteIndex = expenses.firstIndex(where: {$0.id == selected.id})
+            if (deleteIndex != nil) {
+                expenses.remove(at: deleteIndex!)
+            }
+        }
+        
+        mutating func addNewExpense() {
+            expenses.append(Expense(name: "", description: "", amount: 0.0))
+        }
+        
     }
     
     var data: Data {
         Data(date: date, startTime: startTime, endTime: endTime, hours: hours, tasks: tasks, expenses: expenses, totalExpenses: totalExpenses, notes: notes)
     }
+    
     
     mutating func update(from data: Data) {
         date = data.date

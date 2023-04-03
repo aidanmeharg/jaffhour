@@ -9,19 +9,26 @@ import SwiftUI
 
 struct DayDetailView: View {
     
+    @Namespace var newWorkdayAnimation
+    
     var namespace: Namespace.ID
     
     @EnvironmentObject var model: ViewModel
     
     @Binding var showingDayDetails: Bool
     
+    @State var addingWorkday: Bool = false
+    
+    @State var selectedClient = ""
+    
+    @State var newClientName = ""
     
     var date: Date
 
     var body: some View {
         
         ZStack {
-            LinearGradient(colors: [.purple, .clear], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [.green, .clear], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
                 .matchedGeometryEffect(id: "background", in: namespace)
             ScrollView {
@@ -38,21 +45,90 @@ struct DayDetailView: View {
                             }
                         }
                     }
-
-                    Button {
-                        // add a new workday
-                    } label: {
-                        Image(systemName: "plus")
-                            .font(.body.weight(.bold))
-                            .foregroundColor(Color.green)
-                            .padding(10)
-                            .background(.black, in: RoundedRectangle(cornerRadius: 30))
+                    
+                    if (addingWorkday) {
+                        Menu {
+                            Picker(selection: $selectedClient,
+                                   label: EmptyView(),
+                                   content: {
+                                ForEach(model.jobs, id: \.title) { job in
+                                    Text(job.title)
+                                }
+                            }).pickerStyle(.automatic)
+                        } label: {
+                            Text(selectedClient == "" ? "Select Client" : selectedClient)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 10)
+                                .background(.green)
+                                .cornerRadius(10)
+                                .accentColor(Color.black)
+                        }
+                        HStack {
+                            TextField("New Client Name", text: $newClientName)
+                                .padding()
+                            
+                            Button(action: {
+                                model.addJob(title: newClientName)
+                                newClientName = ""
+                            }) {
+                                Text("Add New Client")
+                                    .foregroundColor(Color.yellow)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 20)
+                                    .background(Color.black)
+                                    .cornerRadius(20)
+                                    .transition(.opacity)
+                            }
+                            .padding(.trailing)
+                        }
+                        Button(action: {
+                            if (selectedClient != "") {
+                            
+                                model.addWorkdayForClient(clientName: selectedClient, date: date)
+                                
+                                selectedClient = ""
+                                withAnimation {
+                                    addingWorkday.toggle()
+                                }
+                            }
+                        }) {
+                            Text(selectedClient == "" ? "No Client Selected" : "Add Day For \(selectedClient)")
+                                .foregroundColor(Color.yellow)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 20)
+                                .background(Color.black)
+                                .cornerRadius(20)
+                                .transition(.opacity)
+                        }
                     }
-                    .frame(width: 200, height: 100)
-                    .background(.ultraThinMaterial)
+
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            addingWorkday.toggle()
+                        }
+                    }) {
+                        if (!addingWorkday) {
+                            Text("+ Work Day")
+                                .foregroundColor(Color.yellow)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 20)
+                                .background(Color.black)
+                                .cornerRadius(20)
+                                .matchedGeometryEffect(id: "add_cancelbutton", in: newWorkdayAnimation)
+                        } else {
+                            Text("Cancel New Day")
+                                .foregroundColor(Color.yellow)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 20)
+                                .background(Color.black)
+                                .cornerRadius(20)
+                                .matchedGeometryEffect(id: "add_cancelbutton", in: newWorkdayAnimation)
+                        }
+                        
+                    }
                 }
             }
-            .scrollDismissesKeyboard(.automatic)
+//            .scrollDismissesKeyboard(.automatic) TODO: add this back for jaff
             Button {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
                     showingDayDetails.toggle()
@@ -60,7 +136,7 @@ struct DayDetailView: View {
             } label: {
                 Image(systemName: "xmark")
                     .font(.body.weight(.bold))
-                    .foregroundColor(Color.green)
+                    .foregroundColor(Color.yellow)
                     .padding(10)
                     .background(.black, in: Circle())
             }
@@ -82,7 +158,7 @@ struct DayDetailView: View {
                 
                ZStack {
                    Circle()
-                       .foregroundStyle(LinearGradient(colors: [.green, .green], startPoint: .leading, endPoint: .trailing))
+                       .foregroundStyle(LinearGradient(colors: [.yellow, .orange], startPoint: .leading, endPoint: .trailing))
                        .padding(.horizontal, 2)
                        .matchedGeometryEffect(id: "DayCircle\(model.mdyFormatter.string(from: date))", in: namespace)
                        .frame(width: 100, height: 100)

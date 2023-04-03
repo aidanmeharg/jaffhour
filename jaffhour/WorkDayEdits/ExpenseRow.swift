@@ -17,8 +17,13 @@ struct ExpenseRow: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            
+            Rectangle() // divider for expenses
+                .frame(height: 3)
+                .frame(maxWidth: .infinity)
+            
             HStack {
-                Text("To:")
+                Text("To:   ")
                     .bold()
                     .padding(.leading)
                 Menu {
@@ -39,20 +44,15 @@ struct ExpenseRow: View {
                 }
                 Spacer()
                 Button {
-                    // delete dat expense (FROM TEMPORARY workdayData)
-                    //
-                    // be careful when doing this, don't wanna mess up all the views
-                    //
-                    // make an @ObservableObject class corresponding to temporary workdayData, add a function to delete from there??
+                    workdayData.deleteExpense(selected: expense)
                 } label: {
                     ZStack {
                         Circle()
                             .foregroundColor(.red)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 30, height: 30)
                             
                         Image(systemName: "xmark")
-                            .font(.title2)
-                            .font(.body.weight(.bold))
+                            .font(.callout.bold())
                             .foregroundColor(.black)
                     }
                 }.padding(.trailing)
@@ -75,10 +75,10 @@ struct ExpenseRow: View {
             
             TextEditor(text: $expense.description)
                 .font(.body)
-                .colorMultiply(Color.purple)
+                .colorMultiply(Color.green)
                 .cornerRadius(10)
                 .frame(maxWidth: .infinity)
-                .frame(height: 80)
+                .frame(height: 60)
                 .padding(.horizontal)
                 
             
@@ -87,6 +87,8 @@ struct ExpenseRow: View {
                 .frame(maxWidth: .infinity)
 
         }
+        .background(.yellow.opacity(0.3))
+        .transition(.opacity)
     }
 }
 
