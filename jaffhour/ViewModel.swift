@@ -119,6 +119,9 @@ class ViewModel: ObservableObject {
             if let index = jobs.firstIndex(where: {$0.title == clientName}) {
                 jobs[index].workdays.append(WorkDay(date: date, tasks: "", notes: ""))
                 objectWillChange.send()
+                jobs[index].workdays.sort {
+                    $0.date > $1.date
+                }
             }
         }
     }

@@ -34,7 +34,7 @@ struct DateCell: View {
             Circle()
                 .strokeBorder(lineWidth: 7)
                 .foregroundColor(circleColor())
-                .padding(.horizontal, 2)
+                .padding(.horizontal, 3)
                 .matchedGeometryEffect(id: "DayCircle\(model.mdyFormatter.string(from: date))", in: namespace)
                 .frame(width: 55)
                 .frame(maxHeight: .infinity)
@@ -59,42 +59,33 @@ struct DateCell: View {
         if (model.monthFormatter.string(from: dateHolder.date) != model.monthFormatter.string(from: date)) {
             inSameMonth = false
         }
-        return inSameMonth ? Color.black : Color.gray
-    }
-    
-    func textColor(type: MonthType) -> Color {
-        return type == MonthType.Current ? Color.black : Color.gray
+        return inSameMonth ? JaffPalette.mintForeground : JaffPalette.chillGrey
     }
     
     func circleColor() -> Color {
-        let littleToFour = Color(red: 156/255, green: 233/255, blue: 172/255)
-        let FourToEight = Color(red: 68/255, green: 196/255, blue: 106/255)
-        let EightPlus = Color(red: 51/255, green: 161/255, blue: 83/255)
-        
+    
         let isToday = CalendarHelper().isToday(date: date)
         var hoursWorked = 0.0
         for job in model.jobs {
             for wd in job.workdays { // use reversed because much more likely that calendar will be displaying most recent workdays
-                if wd.date < date {
-                    break
-                }
                 if Calendar.current.isDate(wd.date, equalTo: date, toGranularity: .day) {
                     hoursWorked += wd.hours
                     break
                 }
             }
         }
+        // TODO: change these if hours worked was helpful at all
         var col = Color.clear
         if (hoursWorked > 0.0 && hoursWorked < 4.0) {
-            col = littleToFour
+            col = JaffPalette.low
         }
         if (hoursWorked >= 4.0 && hoursWorked < 8.0) {
-            col = FourToEight
+            col = JaffPalette.low
         }
         if (hoursWorked >= 8.0) {
-            col = EightPlus
+            col = JaffPalette.low
         }
-        return isToday ? Color.red : col
+        return isToday ? Color.yellow : col
     }
     
 }

@@ -26,6 +26,8 @@ struct WorkdayCard: View {
     // to toggle payee add textfield
     @State var addingPayee: Bool = false // TODO: move out into editview
     
+    @State var showInvalidHoursMessage: Bool = false
+    
     @State var newPayeeName: String = ""
     
     var body: some View {
@@ -37,17 +39,17 @@ struct WorkdayCard: View {
                         Text(clientName)
                             .font(.title.bold())
                             .padding()
-                            .foregroundColor(Color.black)
+                            .foregroundColor(JaffPalette.mintForeground)
                             .matchedGeometryEffect(id: "client", in: detailAnimation)
                         Spacer()
                         Text("\(String(format: "%.1f", workday.hours)) hrs")
                             .font(.title.bold())
                             .padding()
+                            .foregroundColor(JaffPalette.mintForeground)
                             .matchedGeometryEffect(id: "hours", in: detailAnimation)
                     }
                     
-                    .background(RoundedRectangle(cornerRadius: 30).foregroundStyle(
-                        LinearGradient(colors: [.purple, .clear], startPoint: .topLeading, endPoint: .bottomTrailing)))
+                    .background(RoundedRectangle(cornerRadius: 20).foregroundColor(JaffPalette.midGreen))
                     .padding(.horizontal)
                     .matchedGeometryEffect(id: "background", in: detailAnimation)
                     .onTapGesture {
@@ -67,22 +69,25 @@ struct WorkdayCard: View {
                                 Text(clientName)
                                     .font(.title.bold())
                                     .padding()
-                                    .foregroundColor(Color.black)
+                                    .foregroundColor(JaffPalette.mintForeground)
                                     .matchedGeometryEffect(id: "client", in: detailAnimation)
                                 Spacer()
                                 Text("\(String(format: "%.1f", workday.hours)) hrs")
                                     .font(.title.bold())
                                     .padding()
+                                    .foregroundColor(JaffPalette.mintForeground)
                                     .matchedGeometryEffect(id: "hours", in: detailAnimation)
                             }
                             HStack {
                                 Text("\(model.timeFormatter.string(from: workday.startTime)) - \(model.timeFormatter.string(from: workday.endTime))")
                                     .font(.title2.bold())
                                     .padding(.horizontal)
+                                    .foregroundColor(JaffPalette.mintForeground)
                                 Spacer()
                                 
                             }
                             Text(workday.tasks)
+                                .foregroundColor(JaffPalette.mintForeground)
                                 .padding(.horizontal)
                             
                             ForEach(workday.expenses, id: \.id) { expense in
@@ -90,14 +95,18 @@ struct WorkdayCard: View {
                                     HStack {
                                         Text(expense.name)
                                             .bold()
+                                            .foregroundColor(JaffPalette.mintForeground)
                                         Text("-")
                                             .bold()
                                             .padding(.horizontal, 3)
+                                            .foregroundColor(JaffPalette.mintForeground)
                                         Text("$\(String(format: "%.2f", expense.amount))")
                                             .bold()
+                                            .foregroundColor(JaffPalette.mintForeground)
                                         
                                     }
                                     Text(expense.description)
+                                        .foregroundColor(JaffPalette.mintForeground)
                                 }
                                 .padding(.horizontal)
                                 .padding(.vertical, 4)
@@ -106,6 +115,7 @@ struct WorkdayCard: View {
                             
                             Text(workday.notes)
                                 .padding()
+                                .foregroundColor(JaffPalette.mintForeground)
                             
                             HStack {
                                 Spacer()
@@ -128,10 +138,9 @@ struct WorkdayCard: View {
                                 Spacer()
                             }
                         }
-                        
-                        .background(RoundedRectangle(cornerRadius: 30).foregroundStyle(
-                            LinearGradient(colors: [.purple, .clear], startPoint: .topLeading, endPoint: .bottomTrailing)))
-                        .matchedGeometryEffect(id: "background", in: detailAnimation)
+                        .transition(.opacity) // TODO: this looks just a bit cleaner
+                        .background(RoundedRectangle(cornerRadius: 20).foregroundColor(JaffPalette.midGreen))
+//                        .matchedGeometryEffect(id: "background", in: detailAnimation)
                         .padding(.horizontal)
                         .onTapGesture {
                             withAnimation(.spring()) {
@@ -151,20 +160,20 @@ struct WorkdayCard: View {
                             Text(clientName)
                                 .font(.title.bold())
                                 .padding()
-                                .foregroundColor(Color.black)
+                                .foregroundColor(JaffPalette.mintForeground)
                                 .matchedGeometryEffect(id: "client", in: detailAnimation)
                             
                             HStack {
                                 
                                 Text("Date:")
                                     .bold()
+                                    .foregroundColor(JaffPalette.mintForeground)
                                     .padding(.leading)
                                 
                                 DatePicker("Date", selection: $workdayData.date, displayedComponents: .date)
                                     .font(.title2.bold())
                                     .labelsHidden()
-                                    .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(
-                                        LinearGradient(colors: [.green, .green], startPoint: .topLeading, endPoint: .bottomTrailing)))
+                                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.green))
                                     .padding(.trailing)
                                 
                             }
@@ -174,17 +183,18 @@ struct WorkdayCard: View {
                                 Text("Start:")
                                     .bold()
                                     .padding(.leading)
+                                    .foregroundColor(JaffPalette.mintForeground)
                                 
                                 DatePicker("Date", selection: $workdayData.startTime, displayedComponents: .hourAndMinute)
                                     .font(.title2.bold())
                                     .labelsHidden()
-                                    .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(
-                                        LinearGradient(colors: [.green, .green], startPoint: .topLeading, endPoint: .bottomTrailing)))
+                                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.green))
                                 
                                 
                                 Text("End:")
                                     .bold()
                                     .padding(.leading)
+                                    .foregroundColor(JaffPalette.mintForeground)
                                 
                                 DatePicker("Date", selection: $workdayData.endTime, displayedComponents: .hourAndMinute)
                                     .font(.title2.bold())
@@ -201,9 +211,10 @@ struct WorkdayCard: View {
                                 .bold()
                                 .padding(.horizontal)
                                 .padding(.top)
+                                .foregroundColor(JaffPalette.mintForeground)
                             TextEditor(text: $workdayData.tasks)
                                 .font(.body)
-                                .colorMultiply(Color.purple)
+                                .colorMultiply(Color.green)
                                 .cornerRadius(10)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 80)
@@ -215,6 +226,7 @@ struct WorkdayCard: View {
                             .bold()
                             .padding(.horizontal)
                             .padding(.top)
+                            .foregroundColor(JaffPalette.mintForeground)
                     
                         
                         ForEach($workdayData.expenses) { $expense in
@@ -246,7 +258,7 @@ struct WorkdayCard: View {
                                 }
                                 .padding(.trailing)
                             }
-                            .background(Color.orange.opacity(0.6))
+                            .background(Color.yellow)
                         }
                         
                         HStack {
@@ -295,9 +307,10 @@ struct WorkdayCard: View {
                             .bold()
                             .padding(.horizontal)
                             .padding(.top)
+                            .foregroundColor(JaffPalette.mintForeground)
                         TextEditor(text: $workdayData.notes)
                             .font(.body)
-                            .colorMultiply(Color.purple)
+                            .colorMultiply(Color.green)
                             .cornerRadius(10)
                             .padding(.horizontal)
                             .padding(.bottom)
@@ -310,7 +323,11 @@ struct WorkdayCard: View {
                                     workdayData = workday.data
                                 }
                                 if (inEditMode) {
-                                    workday.update(from: workdayData)
+                                    if (workdayData.endTime < workdayData.startTime) {
+                                        showInvalidHoursMessage.toggle()
+                                    } else {
+                                        workday.update(from: workdayData)
+                                    }
                                 }
                                 withAnimation(.spring()) {
                                     inEditMode.toggle()
@@ -328,13 +345,16 @@ struct WorkdayCard: View {
                         }
                     }
                     
-                    .background(RoundedRectangle(cornerRadius: 30).foregroundStyle(
-                        LinearGradient(colors: [.green.opacity(0.8), .clear], startPoint: .topLeading, endPoint: .bottomTrailing)))
-                    .matchedGeometryEffect(id: "background", in: detailAnimation)
+                    .background(RoundedRectangle(cornerRadius: 20).foregroundColor(JaffPalette.backgroundDark))
+                    .transition(.opacity)
+//                    .matchedGeometryEffect(id: "background", in: detailAnimation)
                     .padding(.horizontal)
             
                 }
             }
+        }
+        .alert(isPresented: $showInvalidHoursMessage) {
+            Alert(title: Text("Highly Doubtful that you stopped before you started... unless you're building a time machine?"))
         }
     }
     

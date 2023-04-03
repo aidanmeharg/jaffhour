@@ -89,7 +89,9 @@ struct MonthlyView_Previews: PreviewProvider {
 extension Text {
     
     func dayOfWeek() -> some View {
-            self.font(.title2.bold()).frame(maxWidth: .infinity)
+        self.foregroundColor(JaffPalette.mintForeground)
+            .font(.title2.bold()).frame(maxWidth: .infinity)
+        
         
     }
 }

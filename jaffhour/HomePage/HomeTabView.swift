@@ -16,10 +16,14 @@ struct HomeTabView: View {
     
     private let dateHolder = DateHolder()
     
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.systemGray
+    }
+    
     var body: some View {
         
         TabView(selection: $selectedTab) {
-            
+   
             MonthView()
                 .environmentObject(model)
                 .environmentObject(dateHolder)
@@ -32,10 +36,10 @@ struct HomeTabView: View {
                 ContentView()
                     .environmentObject(model)
             }
-                .tabItem {
-                    Label("clients", systemImage: "person.3")
-                }
-                .tag("clients")
+            .tabItem {
+                Label("clients", systemImage: "person.3")
+            }
+            .tag("clients")
             
         }
         //.scrollContentBackground(.hidden)

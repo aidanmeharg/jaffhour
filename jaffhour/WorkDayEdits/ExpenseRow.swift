@@ -48,12 +48,12 @@ struct ExpenseRow: View {
                 } label: {
                     ZStack {
                         Circle()
-                            .foregroundColor(.red)
+                            .foregroundColor(Color.black)
                             .frame(width: 30, height: 30)
                             
                         Image(systemName: "xmark")
                             .font(.callout.bold())
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.yellow)
                     }
                 }.padding(.trailing)
             }
@@ -87,7 +87,7 @@ struct ExpenseRow: View {
                 .frame(maxWidth: .infinity)
 
         }
-        .background(.yellow.opacity(0.3))
+        .background(JaffPalette.mintForeground.opacity(0.3))
         .transition(.opacity)
     }
 }

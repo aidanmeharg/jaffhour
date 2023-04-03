@@ -45,6 +45,7 @@
 		C6E2206828E8DF8100A2DB55 /* WorkDaysListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */; };
 		C6ED156C29CE65F4002A0D9A /* WorkdayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED156B29CE65F4002A0D9A /* WorkdayCard.swift */; };
 		C6ED156E29D02CF0002A0D9A /* ExpenseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED156D29D02CF0002A0D9A /* ExpenseRow.swift */; };
+		C6ED157029DA6600002A0D9A /* JaffPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED156F29DA6600002A0D9A /* JaffPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		C6E2206728E8DF8100A2DB55 /* WorkDaysListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDaysListView.swift; sourceTree = "<group>"; };
 		C6ED156B29CE65F4002A0D9A /* WorkdayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkdayCard.swift; sourceTree = "<group>"; };
 		C6ED156D29D02CF0002A0D9A /* ExpenseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRow.swift; sourceTree = "<group>"; };
+		C6ED156F29DA6600002A0D9A /* JaffPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaffPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				C659B3312918C72400A4C139 /* EditableWorkDayView.swift */,
 				C6C3EFFB292F409F00E55079 /* EditPayeesView.swift */,
 				C673826C295F913300E1594A /* CSVExportView.swift */,
+				C6ED156F29DA6600002A0D9A /* JaffPalette.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				C6E0D16D28EF8E4E00DCD6C3 /* WorkDayDetailView.swift in Sources */,
 				C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */,
 				C6AF75AB28E3EE7E00EFB374 /* jaffhourApp.swift in Sources */,
+				C6ED157029DA6600002A0D9A /* JaffPalette.swift in Sources */,
 				C6E2206228E7819A00A2DB55 /* editTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

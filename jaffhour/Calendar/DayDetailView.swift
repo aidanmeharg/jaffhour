@@ -23,12 +23,13 @@ struct DayDetailView: View {
     
     @State var newClientName = ""
     
+    
     var date: Date
 
     var body: some View {
         
         ZStack {
-            LinearGradient(colors: [.green, .clear], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [JaffPalette.backgroundDark, JaffPalette.backgroundDark], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
                 .matchedGeometryEffect(id: "background", in: namespace)
             ScrollView {
@@ -63,6 +64,7 @@ struct DayDetailView: View {
                                 .cornerRadius(10)
                                 .accentColor(Color.black)
                         }
+                        .transition(.opacity)
                         HStack {
                             TextField("New Client Name", text: $newClientName)
                                 .padding()
@@ -81,6 +83,8 @@ struct DayDetailView: View {
                             }
                             .padding(.trailing)
                         }
+                        .background(Color.yellow)
+                        .transition(.opacity)
                         Button(action: {
                             if (selectedClient != "") {
                             
@@ -100,6 +104,7 @@ struct DayDetailView: View {
                                 .cornerRadius(20)
                                 .transition(.opacity)
                         }
+                        .transition(.opacity)
                     }
 
                     Button(action: {
@@ -115,6 +120,7 @@ struct DayDetailView: View {
                                 .background(Color.black)
                                 .cornerRadius(20)
                                 .matchedGeometryEffect(id: "add_cancelbutton", in: newWorkdayAnimation)
+                               
                         } else {
                             Text("Cancel New Day")
                                 .foregroundColor(Color.yellow)
@@ -123,9 +129,11 @@ struct DayDetailView: View {
                                 .background(Color.black)
                                 .cornerRadius(20)
                                 .matchedGeometryEffect(id: "add_cancelbutton", in: newWorkdayAnimation)
+                
                         }
                         
                     }
+                    .transition(.opacity)
                 }
             }
 //            .scrollDismissesKeyboard(.automatic) TODO: add this back for jaff
@@ -152,26 +160,26 @@ struct DayDetailView: View {
     var dateHeader: some View {
         HStack {
                Text("\(model.dayOfWeekFormatter.string(from: date)) \n \(model.monthFormatter.string(from: date))")
-                   .font(.title.bold())
-                   .padding(.leading)
-                   .matchedGeometryEffect(id: "DayOfWeek\(model.mdyFormatter.string(from: date))", in: namespace)
+                .foregroundColor(JaffPalette.mintForeground)
+                .font(.title.bold())
+                .matchedGeometryEffect(id: "DayOfWeek\(model.mdyFormatter.string(from: date))", in: namespace)
                 
                ZStack {
                    Circle()
                        .foregroundStyle(LinearGradient(colors: [.yellow, .orange], startPoint: .leading, endPoint: .trailing))
                        .padding(.horizontal, 2)
                        .matchedGeometryEffect(id: "DayCircle\(model.mdyFormatter.string(from: date))", in: namespace)
-                       .frame(width: 100, height: 100)
+                       .frame(width: 90, height: 90)
                        
                    Text(model.dayFormatter.string(from: date))
-                       .foregroundColor(Color.black)
+                       .foregroundColor(JaffPalette.backgroundDark)
                        .font(.title.bold())
                        .matchedGeometryEffect(id: "Day\(model.mdyFormatter.string(from: date))", in: namespace)
                       
                }
                Text(model.yearFormatter.string(from: date))
+                   .foregroundColor(JaffPalette.mintForeground)
                    .font(.title.bold())
-                   .padding(.trailing)
                    .matchedGeometryEffect(id: "Year\(model.mdyFormatter.string(from: date))", in: namespace)
                   
             }

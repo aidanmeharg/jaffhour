@@ -18,16 +18,15 @@ struct MonthScrollerView: View {
                 Image(systemName: "arrow.left")
                     .imageScale(.large)
                     .font(.title.bold())
-                    .foregroundColor(Color.black)
             }
             Text(CalendarHelper().monthYearString(date: dateHolder.date))
+                .foregroundColor(JaffPalette.mintForeground)
                 .font(.title.bold())
                 .frame(maxWidth: .infinity)
             Button(action: nextMonth) {
                 Image(systemName: "arrow.right")
                     .imageScale(.large)
                     .font(.title.bold())
-                    .foregroundColor(Color.black)
             }
             Spacer()
         }

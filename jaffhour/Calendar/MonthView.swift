@@ -46,6 +46,7 @@ struct MonthView: View {
                 }
             }
         }
+        .background(JaffPalette.backgroundDark)
             
          
         
