@@ -86,7 +86,7 @@ struct CSVExportView: View {
             
         } label: {
             Label("Export Table", systemImage: "arrow.up.square")
-                .font(.title.bold())
+                .font(.title3.bold())
 
         }.fileExporter(isPresented: $showingExporter, document: document, contentType: .plainText, defaultFilename: "\(job.title).csv") {
             result in

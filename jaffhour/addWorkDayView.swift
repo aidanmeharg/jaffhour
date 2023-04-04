@@ -152,9 +152,9 @@ struct addWorkDayView: View {
                 .alert(isPresented: $invalidDay) {
                     Alert(title: Text("Highly Doubtful that you worked for \(String(format: "%.2f", round(workday.hours * 100) / 100.0)) hours... unless you're building a time machine?"))
                 }
-                
-                //.scrollContentBackground(.hidden)
-//                .background(Color.green)
+                .scrollDismissesKeyboard(.immediately)
+                .scrollContentBackground(.hidden)
+                .background(JaffPalette.backgroundDark)
                 
                 
             }

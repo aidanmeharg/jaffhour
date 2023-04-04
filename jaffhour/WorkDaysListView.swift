@@ -44,6 +44,8 @@ struct WorkDaysListView: View {
                 .disabled(selectedDays.isEmpty || editMode == .inactive)
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(JaffPalette.backgroundDark)
         .navigationTitle("Work Days")
         .environment(\.editMode, $editMode)
     }

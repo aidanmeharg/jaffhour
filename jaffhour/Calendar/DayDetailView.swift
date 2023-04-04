@@ -136,7 +136,7 @@ struct DayDetailView: View {
                     .transition(.opacity)
                 }
             }
-//            .scrollDismissesKeyboard(.automatic) TODO: add this back for jaff
+            .scrollDismissesKeyboard(.immediately)
             Button {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
                     showingDayDetails.toggle()

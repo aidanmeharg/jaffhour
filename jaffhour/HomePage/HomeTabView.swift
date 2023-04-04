@@ -17,7 +17,7 @@ struct HomeTabView: View {
     private let dateHolder = DateHolder()
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor.systemGray
+        UITabBar.appearance().backgroundColor = UIColor.systemBrown
     }
     
     var body: some View {
@@ -42,8 +42,6 @@ struct HomeTabView: View {
             .tag("clients")
             
         }
-        //.scrollContentBackground(.hidden)
-//        .background(Color.green)
     }
     
     struct HomeTabView_Previews: PreviewProvider {

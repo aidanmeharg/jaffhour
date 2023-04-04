@@ -48,7 +48,8 @@ struct ContentView: View {
             
         }
         
-        //.scrollContentBackground(.hidden)
+        .scrollContentBackground(.hidden)
+        .background(JaffPalette.backgroundDark)
         
         
         .navigationTitle("Clients")

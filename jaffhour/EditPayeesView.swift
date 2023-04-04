@@ -25,10 +25,14 @@ struct EditPayeesView: View {
                 ForEach($model.payees, id: \.self) { $payee in
                     Text(payee)
                         .tag(payee)
+                        .foregroundColor(JaffPalette.mintForeground)
+                        .listRowBackground(JaffPalette.midGreen)
                 }
                 .onMove(perform: model.movePayees)
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(JaffPalette.backgroundDark)
         .sheet(isPresented: $showingAddSheet) {
             ZStack {
                 JaffPalette.backgroundDark

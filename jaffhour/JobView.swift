@@ -28,6 +28,9 @@ struct JobView: View {
     init(job: Binding<Job>) {
         self._job = job
         dateformatter.dateFormat = "MMM dd yyyy"
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemGreen]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemGreen]
     }
     
     var body: some View {
@@ -39,6 +42,7 @@ struct JobView: View {
                             Text("Rename: ")
                                 
                             TextField("Job Name", text: $job.title)
+                                
                         }
                     }
                     
@@ -129,8 +133,8 @@ struct JobView: View {
                     EditButton()
                 }
             }
-            //.scrollContentBackground(.hidden)
-            .background(Color.green)
+            .scrollContentBackground(.hidden)
+            .background(JaffPalette.backgroundDark)
             .environment(\.editMode, $editMode)
             .navigationTitle(job.title)
             .sheet(isPresented: $showAddSheet) {

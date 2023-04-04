@@ -37,13 +37,14 @@ struct addExpenseView: View {
                     HStack {
                         TextEditor(text: $selectedName)
                             .font(.body)
-                            .colorMultiply(Color.purple)
+                            .background(.yellow)
+                            .accentColor(.black)
                             .cornerRadius(10)
                             .frame(height: 80)
                         Button {
                             if (selectedName != "") {
                                 globalpayees.addPayee(payee: selectedName) // TODO: get rid of globalpayees
-                                model.payees.append(selectedName)
+                                model.addPayee(name: selectedName)
                                 updatePayee()
                                 newPayee = false
                             }
@@ -75,6 +76,7 @@ struct addExpenseView: View {
 
                     TextField("Description", text: $expense.description)
                         .padding(.all)
+                        .background(.yellow)
                         .buttonStyle(BorderlessButtonStyle())
 
                     TextField("Amount", value: $expense.amount, format: .currency(code: "CAD"))
