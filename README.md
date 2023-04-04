@@ -12,6 +12,8 @@
 
 Struggling to keep accurate records of all the work you're doing? Look no further than jaffhour! This app will let you organize your projects and log your work with ease. Come invoice time, just select a date range and export your entries for the billing period in a tidy CSV file.
 
+Uses [CodableCSV](https://github.com/dehesa/CodableCSV) for table export functionality.
+
 Stay tuned for a potential **one-time** release on the app store
 
 ## Screenshots
