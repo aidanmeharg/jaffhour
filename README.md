@@ -19,13 +19,13 @@ Stay tuned for a potential **one-time** release on the app store
 ## Screenshots
 
 <h3>
-  <img src="./demo_images/IMG_8218.PNG" height="400px">
-  <img src="./demo_images/IMG_8219.PNG" height="400px">
-  <img src="./demo_images/IMG_8220.PNG" height="400px">
+  <img src="./demo_images/IMG_8218.PNG" height="500px">
+  <img src="./demo_images/IMG_8219.PNG" height="500px">
+  <img src="./demo_images/IMG_8220.PNG" height="500px">
 </h3>
 
 <h3>
-  <img src="./demo_images/IMG_8221.PNG" height="400px">
-  <img src="./demo_images/IMG_8222.PNG" height="400px">
-  <img src="./demo_images/IMG_8223.PNG" height="400px">
+  <img src="./demo_images/IMG_8221.PNG" height="500px">
+  <img src="./demo_images/IMG_8222.PNG" height="500px">
+  <img src="./demo_images/IMG_8223.PNG" height="500px">
 </h3>
