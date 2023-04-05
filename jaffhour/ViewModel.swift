@@ -40,7 +40,6 @@ class ViewModel: ObservableObject {
     // TODO: use one dateFormatter and call functions
     //       also move all this date formatting stuff into a class in the calendar folder
     
-    var globalpayees = GlobalPayees.sharedInstance
     
     
     init() {
@@ -59,16 +58,10 @@ class ViewModel: ObservableObject {
         }
         do {
             let payee_data = try Data(contentsOf: savePathPayees)
-            globalpayees.payees = try JSONDecoder().decode([String].self, from: payee_data)
-            // TODO: after jaff has updated, get rid of globalpayees entirely
-            payees = []
-            for pname in globalpayees.payees {
-                payees.append(pname)
-            }
+            payees = try JSONDecoder().decode([String].self, from: payee_data)
         } catch {
             // loading failed: start with new data
             payees = []
-            globalpayees.payees = []
         }
         // sort jobs in case of previous changes made 
         for var job in jobs {

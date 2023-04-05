@@ -14,7 +14,6 @@
 		C616587C29022F2200D8E3CB /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616587B29022F2200D8E3CB /* MonthlyView.swift */; };
 		C616587E290248D900D8E3CB /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616587D290248D900D8E3CB /* CalendarCell.swift */; };
 		C6165880290250E500D8E3CB /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616587F290250E500D8E3CB /* MonthStruct.swift */; };
-		C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F128F0B54100DA25B1 /* GlobalPayees.swift */; };
 		C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123F828F2068200DA25B1 /* FileManagerExtension.swift */; };
 		C63123FB28F3AC8300DA25B1 /* TESTcodablestructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */; };
 		C657A5D329C974DF002C39DC /* DateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657A5D229C974DF002C39DC /* DateIcon.swift */; };
@@ -58,7 +57,6 @@
 		C616587B29022F2200D8E3CB /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
 		C616587D290248D900D8E3CB /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		C616587F290250E500D8E3CB /* MonthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
-		C63123F128F0B54100DA25B1 /* GlobalPayees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPayees.swift; sourceTree = "<group>"; };
 		C63123F828F2068200DA25B1 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		C63123FA28F3AC8300DA25B1 /* TESTcodablestructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTcodablestructs.swift; sourceTree = "<group>"; };
 		C657A5D229C974DF002C39DC /* DateIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIcon.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 			children = (
 				C6E2205328E6492000A2DB55 /* workday.swift */,
 				C6E2205928E65E5800A2DB55 /* ViewModel.swift */,
-				C63123F128F0B54100DA25B1 /* GlobalPayees.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -395,7 +392,6 @@
 				C657A5DC29CD2E0D002C39DC /* DayDetailView.swift in Sources */,
 				C63123F928F2068200DA25B1 /* FileManagerExtension.swift in Sources */,
 				C6E0D16D28EF8E4E00DCD6C3 /* WorkDayDetailView.swift in Sources */,
-				C63123F228F0B54100DA25B1 /* GlobalPayees.swift in Sources */,
 				C6AF75AB28E3EE7E00EFB374 /* jaffhourApp.swift in Sources */,
 				C6ED157029DA6600002A0D9A /* JaffPalette.swift in Sources */,
 				C6E2206228E7819A00A2DB55 /* editTest.swift in Sources */,

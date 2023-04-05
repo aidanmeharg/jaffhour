@@ -12,8 +12,6 @@ struct addExpenseView: View {
     
     @EnvironmentObject var model: ViewModel
     
-    var globalpayees = GlobalPayees.sharedInstance
-    
     @Binding var expense: Expense
     
     @State private var selectedName = ""
@@ -43,7 +41,6 @@ struct addExpenseView: View {
                             .frame(height: 80)
                         Button {
                             if (selectedName != "") {
-                                globalpayees.addPayee(payee: selectedName) // TODO: get rid of globalpayees
                                 model.addPayee(name: selectedName)
                                 updatePayee()
                                 newPayee = false
