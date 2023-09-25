@@ -1,4 +1,4 @@
-# jaffhour - Project Tracker
+# Jaffhour - Time and Expense Tracker
 
 <img src="./jaffhour/Assets.xcassets/AppIcon.appiconset/mac128.png" align="left" hspace="10" vspace="10">
 
@@ -10,7 +10,7 @@
 
 ## About
 
-Struggling to keep accurate records of all the work you're doing? Look no further than jaffhour! This app will let you organize your projects and log your work with ease. Come invoice time, just select a date range and export your entries for the billing period in a tidy CSV file.
+Struggling to keep accurate records of all the work you're doing? Look no further than Jaffhour! This app will let you organize your projects and log your work with ease. Come invoice time, just select a date range and export your entries for the billing period in a tidy CSV file.
 
 Uses [CodableCSV](https://github.com/dehesa/CodableCSV) for table export functionality.
 
