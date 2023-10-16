@@ -16,6 +16,14 @@ Uses [CodableCSV](https://github.com/dehesa/CodableCSV) for table export functio
 
 Stay tuned for a potential **one-time** release on the app store
 
+## Demo
+
+
+https://github.com/aidanmeharg/jaffhour/assets/115366694/b7f5f426-6657-43d9-8647-e1d06898b83b
+
+https://github.com/aidanmeharg/jaffhour/assets/115366694/fd735c75-6593-4ce7-9042-2d96c484bac6
+
+
 ## Screenshots
 
 <h3>
